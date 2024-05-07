@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '31ade5f0891b094970cfff421d1aae6a',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => 'e609660f955e72ae472e21104d546cf9',
+  'native_key' => 'principal_targets',
+  'object' => '{"key":"principal_targets","value":"MODX\\\\Revolution\\\\modAccessContext,MODX\\\\Revolution\\\\modAccessResourceGroup,MODX\\\\Revolution\\\\modAccessCategory,MODX\\\\Revolution\\\\Sources\\\\modAccessMediaSource,MODX\\\\Revolution\\\\modAccessNamespace","xtype":"textfield","namespace":"core","area":"authentication","editedon":null}',
+);

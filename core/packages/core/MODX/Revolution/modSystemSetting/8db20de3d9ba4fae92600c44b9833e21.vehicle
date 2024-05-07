@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => 'd0a2dc27929172289865ac2f81981308',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => '8db20de3d9ba4fae92600c44b9833e21',
+  'native_key' => 'passwordless_activated',
+  'object' => '{"key":"passwordless_activated","value":false,"xtype":"combo-boolean","namespace":"core","area":"authentication","editedon":null}',
+);

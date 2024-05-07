@@ -1,0 +1,17 @@
+{
+    "name": "twomokko/dk-lok",
+    "autoload": {
+        "psr-4": {
+            "Twomokko\\DkLok\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TwoMokko",
+            "email": "two.mokko@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

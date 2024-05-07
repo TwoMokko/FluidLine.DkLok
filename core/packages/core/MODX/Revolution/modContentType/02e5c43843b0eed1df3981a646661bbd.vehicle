@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => false,
+  'update_object' => false,
+  'unique_key' => 'mime_type',
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => 'ff61d52d64bd0d03850d2b74488ed5b0',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modContentType',
+  'signature' => '02e5c43843b0eed1df3981a646661bbd',
+  'native_key' => 5,
+  'object' => '{"id":5,"name":"JavaScript","description":"JavaScript content","mime_type":"text\\/javascript","file_extensions":".js","icon":"icon-js","headers":"NULL","binary":0}',
+);

@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => 'c9c3f20902898acb185b8e9cdec6ae51',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => '0949139b941420da5b6ad23fc694d66d',
+  'native_key' => 'static_elements_html_extension',
+  'object' => '{"key":"static_elements_html_extension","value":".tpl","xtype":"textfield","namespace":"core","area":"static_elements","editedon":null}',
+);

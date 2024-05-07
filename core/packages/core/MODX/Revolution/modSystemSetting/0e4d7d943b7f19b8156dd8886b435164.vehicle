@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '35d98844368fa7a37a6be8193c6e11bb',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => '0e4d7d943b7f19b8156dd8886b435164',
+  'native_key' => 'request_method_strict',
+  'object' => '{"key":"request_method_strict","value":false,"xtype":"combo-boolean","namespace":"core","area":"gateway","editedon":null}',
+);

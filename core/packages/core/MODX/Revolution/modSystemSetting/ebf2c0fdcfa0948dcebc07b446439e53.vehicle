@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '9533e0329472ae869868ea75e5c8fcde',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => 'ebf2c0fdcfa0948dcebc07b446439e53',
+  'native_key' => 'static_elements_automate_chunks',
+  'object' => '{"key":"static_elements_automate_chunks","value":false,"xtype":"combo-boolean","namespace":"core","area":"static_elements","editedon":null}',
+);

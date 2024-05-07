@@ -1,0 +1,20 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'unique_key' => 
+  array (
+    0 => 'context_key',
+    1 => 'key',
+  ),
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => 'a0440b15ee10302a82db8b6e0609c78d',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modContextSetting',
+  'signature' => '1854c5f565afc4660c697dfe09982300',
+  'native_key' => 
+  array (
+    0 => 'mgr',
+    1 => 'allow_tags_in_post',
+  ),
+  'object' => '{"context_key":"mgr","key":"allow_tags_in_post","value":true,"xtype":"combo-boolean","namespace":"core","area":"system","editedon":null}',
+);

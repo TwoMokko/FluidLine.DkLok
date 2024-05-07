@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '7097fe19bf8b3ad138d1da30750f2fcd',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => '98ecd89342b48868f6adeb127de4b513',
+  'native_key' => 'upload_maxsize',
+  'object' => '{"key":"upload_maxsize","value":1048576,"xtype":"numberfield","namespace":"core","area":"file","editedon":null}',
+);

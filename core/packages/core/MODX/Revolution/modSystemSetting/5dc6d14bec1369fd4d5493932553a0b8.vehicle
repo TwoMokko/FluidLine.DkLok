@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '31304f9e976d3a7bf61bd4cf3903bd4c',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => '5dc6d14bec1369fd4d5493932553a0b8',
+  'native_key' => 'richtext_default',
+  'object' => '{"key":"richtext_default","value":true,"xtype":"combo-boolean","namespace":"core","area":"manager","editedon":null}',
+);

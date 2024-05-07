@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '4879b968c7c499866b07ee02fb987cd3',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => 'ab43127f394e3ef96944accd5111ceb1',
+  'native_key' => 'login_logo',
+  'object' => '{"key":"login_logo","value":"","xtype":"textfield","namespace":"core","area":"authentication","editedon":null}',
+);

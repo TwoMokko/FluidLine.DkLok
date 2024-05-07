@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '219b2654dd665888dc6bc77bb92ae468',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => '2aeb2a1c4a4e21e2d364f2b1d518d570',
+  'native_key' => 'password_generated_length',
+  'object' => '{"key":"password_generated_length","value":10,"xtype":"numberfield","namespace":"core","area":"authentication","editedon":null}',
+);

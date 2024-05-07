@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '7ec47dcbe369f30f10e2878862bc2788',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => 'a5cadde315f08fca8dce155c9e906701',
+  'native_key' => 'log_level',
+  'object' => '{"key":"log_level","value":1,"xtype":"numberfield","namespace":"core","area":"system","editedon":null}',
+);

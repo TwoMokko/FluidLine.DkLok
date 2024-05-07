@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '2af521f39d3c8b712f6c2602655ec5af',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => '553b0e999bd7d7c4dac3f5954d59a6c9',
+  'native_key' => 'login_help_button',
+  'object' => '{"key":"login_help_button","value":"","xtype":"combo-boolean","namespace":"core","area":"authentication","editedon":null}',
+);

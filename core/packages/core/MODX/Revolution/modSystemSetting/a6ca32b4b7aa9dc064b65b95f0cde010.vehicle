@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '08bb2b5652724c8ff6ce92f4dccb9984',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => 'a6ca32b4b7aa9dc064b65b95f0cde010',
+  'native_key' => 'site_start',
+  'object' => '{"key":"site_start","value":1,"xtype":"numberfield","namespace":"core","area":"site","editedon":null}',
+);
