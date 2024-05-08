@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "function" as *;
+@use "variable" as *;
+
+@import "header";
+@import "footer";
+@import "mainPage";
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    flex: none;
+}
+main {
+    flex: auto;
+}
+footer {
+    flex: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding-left: 10%;
+    padding-right: 10%;
+}

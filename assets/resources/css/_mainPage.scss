@@ -1,0 +1,74 @@
+@use "function" as *;
+@use "variable" as *;
+
+.main-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-img {
+        position: relative;
+        flex: auto;
+        > div {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 64px 144px;
+            background-color: #FFFFFF4D;
+            > div:first-child {
+                font-weight: 700;
+                font-size: 64px;
+                line-height: 84px;
+                margin-bottom: 8px;
+            }
+            > div:last-child {}
+        }
+        > img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &-arrow {
+        flex: 30%;
+        text-align: center;
+        &.left {
+
+        }
+        &.right {
+
+        }
+    }
+}
+
+.main-prod {
+    display: flex;
+    &-info {
+        width: 340px;
+        height: min-content;
+        padding: 20px 24px 48px;
+        background-color: $colorBackgroundDark;
+    }
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        &-card {
+            &-img {
+                width: 340px;
+                height: 262px;
+                > img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.main-icons {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}

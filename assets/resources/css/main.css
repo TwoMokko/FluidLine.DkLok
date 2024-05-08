@@ -1,0 +1,157 @@
+/* Colors */
+/* Sizes */
+/* Colors */
+/* Sizes */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.header a {
+  padding: 6px 0;
+  color: #000;
+}
+.header-logo > img {
+  height: 24px;
+  width: auto;
+}
+.header-contacts {
+  display: flex;
+  gap: 40px;
+}
+
+/* Colors */
+/* Sizes */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: #242424;
+}
+.footer a {
+  padding: 6px;
+  color: #FFF;
+}
+.footer-logo > img {
+  height: 32px;
+  width: auto;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+}
+
+/* Colors */
+/* Sizes */
+.main-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-banner-img {
+  position: relative;
+  flex: auto;
+}
+.main-banner-img > div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 64px 144px;
+  background-color: rgba(255, 255, 255, 0.3019607843);
+}
+.main-banner-img > div > div:first-child {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 84px;
+  margin-bottom: 8px;
+}
+.main-banner-img > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.main-banner-arrow {
+  flex: 30%;
+  text-align: center;
+}
+.main-prod {
+  display: flex;
+}
+.main-prod-info {
+  width: 340px;
+  height: min-content;
+  padding: 20px 24px 48px;
+  background-color: #242424;
+}
+.main-prod-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.main-prod-grid-card-img {
+  width: 340px;
+  height: 262px;
+}
+.main-prod-grid-card-img > img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.main-icons {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+header {
+  flex: none;
+}
+
+main {
+  flex: auto;
+}
+
+footer {
+  flex: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+/*# sourceMappingURL=main.css.map */

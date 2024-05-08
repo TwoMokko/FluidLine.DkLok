@@ -1,15 +1,16 @@
 <?php
+
 /**
  *  MODX Configuration file
  */
-$database_type = 'mysql';
-$database_server = 'localhost';
-$database_user = 'root';
-$database_password = '';
+$database_type = "mysql";
+$database_server = "localhost";
+$database_user = "root";
+$database_password = "";
 $database_connection_charset = 'utf8mb4';
-$dbase = 'dk-lok';
+$dbase = "dk-lok";
 $table_prefix = 'modx_';
-$database_dsn = 'mysql:host=localhost;dbname=dk-lok;charset=utf8mb4';
+$database_dsn = "$database_type:host=$database_server;dbname=$dbase;charset=utf8mb4";
 $config_options = array (
 );
 $driver_options = array (
@@ -31,19 +32,19 @@ if (!defined('MODX_PROCESSORS_PATH')) {
     define('MODX_PROCESSORS_PATH', $modx_processors_path);
 }
 if (!defined('MODX_CONNECTORS_PATH')) {
-    $modx_connectors_path= __DIR__ . '/../..//connectors/';
+    $modx_connectors_path= __DIR__ . '/../../connectors/';
     $modx_connectors_url= '/connectors/';
     define('MODX_CONNECTORS_PATH', $modx_connectors_path);
     define('MODX_CONNECTORS_URL', $modx_connectors_url);
 }
 if (!defined('MODX_MANAGER_PATH')) {
-    $modx_manager_path= __DIR__ . '/../..//manager/';
+    $modx_manager_path= __DIR__ . '/../../manager/';
     $modx_manager_url= '/manager/';
     define('MODX_MANAGER_PATH', $modx_manager_path);
     define('MODX_MANAGER_URL', $modx_manager_url);
 }
 if (!defined('MODX_BASE_PATH')) {
-    $modx_base_path= __DIR__ . '/../..//';
+    $modx_base_path= __DIR__ . '/../../';
     $modx_base_url= '/';
     define('MODX_BASE_PATH', $modx_base_path);
     define('MODX_BASE_URL', $modx_base_url);
@@ -73,7 +74,7 @@ if (!defined('MODX_SITE_URL')) {
     define('MODX_SITE_URL', $site_url);
 }
 if (!defined('MODX_ASSETS_PATH')) {
-    $modx_assets_path= __DIR__ . '/../..//assets/';
+    $modx_assets_path= __DIR__ . '/../../assets/';
     $modx_assets_url= '/assets/';
     define('MODX_ASSETS_PATH', $modx_assets_path);
     define('MODX_ASSETS_URL', $modx_assets_url);
