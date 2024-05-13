@@ -1,10 +1,12 @@
 @use "sass:map";
 @use "function" as *;
 @use "variable" as *;
+@use "mixins" as *;
 
 @import "header";
 @import "footer";
 @import "mainPage";
+@import "products";
 
 * {
     box-sizing: border-box;

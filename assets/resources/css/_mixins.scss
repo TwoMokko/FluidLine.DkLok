@@ -1,0 +1,16 @@
+@use "variable" as *;
+
+@mixin btn($bg_color, $border, $text_color) {
+    padding: 8px 16px;
+    color: $text_color;
+    background-color: $bg_color;
+    border: $border;
+    cursor: pointer;
+}
+
+@mixin btn_accent {
+    @include btn($colorBtnAccent, none, $colorTextLight);
+    &:hover {
+
+    }
+}
