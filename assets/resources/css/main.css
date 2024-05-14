@@ -87,7 +87,12 @@
   flex: 30%;
   text-align: center;
   cursor: pointer;
+  padding: 40px 0;
 }
+.main-banner-arrow.left > img {
+  transform: rotate(180deg);
+}
+
 .main-prod {
   display: flex;
   margin-bottom: 84px;
@@ -240,29 +245,49 @@
 .prod-info-text > div:last-child {
   text-align: end;
 }
-.prod-info-text > div:last-child > a {
-  padding: 8px 16px;
-  color: #FFF;
-  background-color: #E01E25;
-  border: none;
-  cursor: pointer;
+.prod-table {
+  display: flex;
 }
 .prod-table > table {
-  border-spacing: 0;
+  width: max-content;
+}
+.prod-table > div {
+  overflow-x: auto;
+  scrollbar-width: none;
+  width: 100%;
+  position: relative;
+}
+.prod-table > div > table {
   width: 100%;
 }
-.prod-table > table th, .prod-table > table td {
+.prod-table table {
+  border-spacing: 0;
+}
+.prod-table table th, .prod-table table td {
+  text-wrap: nowrap;
+  height: 52px;
   padding: 8px;
   font-size: 14px;
   line-height: 18px;
   text-align: left;
 }
-.prod-table > table td {
+.prod-table table td {
   border-bottom: 1px solid #000;
 }
-.prod-table > table > thead {
+.prod-table table > thead {
   background-color: #E01E25;
   color: #FFF;
+}
+
+.page-not-found {
+  margin: 84px 0;
+}
+.page-not-found > div:first-child {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+.page-not-found .btn-container {
+  margin-top: 24px;
 }
 
 * {
@@ -297,12 +322,21 @@ footer {
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
 }
 
 .container {
   padding-left: 10%;
   padding-right: 10%;
+}
+
+.btn {
+  padding: 8px 16px;
+  color: #FFF;
+  background-color: #E01E25;
+  border: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

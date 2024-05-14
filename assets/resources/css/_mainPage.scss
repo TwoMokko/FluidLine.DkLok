@@ -36,11 +36,9 @@
         flex: 30%;
         text-align: center;
         cursor: pointer;
-        &.left {
-
-        }
-        &.right {
-
+        padding: 40px 0;
+        &.left > img {
+            transform: rotate(180deg);
         }
     }
 }

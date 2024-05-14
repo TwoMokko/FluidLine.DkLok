@@ -70,17 +70,31 @@
             > div:last-child {
                 text-align: end;
                 > a {
-                    @include btn_accent;
+                    //@include btn_accent;
                 }
             }
         }
     }
     &-table {
-
+        display: flex;
         > table {
-            border-spacing: 0;
+            width: max-content;
+        }
+        > div {
+            overflow-x: auto;
+            scrollbar-width: none;
             width: 100%;
+            position: relative;
+            > table {
+                width: 100%;
+            }
+        }
+         table {
+            border-spacing: 0;
+            //width: 100%;
             th, td {
+                text-wrap: nowrap;
+                height: 52px;
                 padding: 8px;
                 font-size: 14px;
                 line-height: 18px;
