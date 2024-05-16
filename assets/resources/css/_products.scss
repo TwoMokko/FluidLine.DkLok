@@ -3,110 +3,153 @@
 @use "mixins" as *;
 
 .prods {
-    &-info {
-        margin-bottom: 84px;
-        margin-top: 48px;
-        > div:first-child {
-            font-size: 40px;
-            line-height: 52px;
-            font-weight: 500;
-            margin-bottom: 30px;
-            color: $colorTextAccent;
-        }
-    }
-    &-cards {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 40px;
-        margin-bottom: 84px;
-        padding: 40px;
-        background-color: $colorBackgroundDark;
-        &-item {
-            padding: 24px;
-            background-color: $colorBackgroundLight;
+    @mixin Prods($params: null) {
+        padding: GetParam($params, prods_padding, 0 10%);
+        &-info {
+            margin-bottom: GetParam($params, info_margin_bot, 84px);
+            margin-top: GetParam($params, info_margin_top, 48px);
             > div:first-child {
-                margin-bottom: 24px;
-                height: 200px;
+                font-size: GetParam($params, head_font_size, 40px);
+                line-height: GetParam($params, head_line_height, 52px);
+                font-weight: 500;
+                margin-bottom: GetParam($params, head_margin_bot, 30px);
+                color: $colorTextAccent;
             }
-            img {
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-}
-
-.prod {
-    margin-top: 24px;
-    margin-bottom: 84px;
-    &-header {
-        font-size: 30px;
-        font-weight: 500;
-        line-height: 39px;
-        margin-bottom: 20px;
-    }
-    &-info {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 40px;
-        &-img {
-            width: 50%;
-            height: 450px;
-            > img {
-                object-fit: contain;
-                width: 100%;
-                height: 100%;
-            }
-        }
-        &-text {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding-bottom: 140px;
-            padding-top: 34px;
-            > div:first-child {}
             > div:last-child {
-                text-align: end;
-                > a {
-                    //@include btn_accent;
+                font-size: GetParam($params, text_font_size, null);
+                line-height: GetParam($params, text_line_height, null);
+            }
+        }
+        &-cards {
+            display: grid;
+            grid-template-columns: repeat(GetParam($params, cards_template_col, 4), 1fr);
+            gap: GetParam($params, cards_gap, 40px);
+            margin-bottom: GetParam($params, cards_margin_bot, 84px);
+            padding: GetParam($params, cards_gap, 40px);
+            background-color: $colorBackgroundDark;
+            &-item {
+                padding: GetParam($params, card_padding, 24px);
+                background-color: $colorBackgroundLight;
+                cursor: pointer;
+                &:hover {
+                    > div:last-child {
+                        color: $colorTextAccent;
+                    }
+                }
+                > div:first-child {
+                    margin-bottom: GetParam($params, img_margin_bot, 24px);
+                    height: GetParam($params, img_height, 200px);
+                }
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
                 }
             }
         }
     }
-    &-table {
-        display: flex;
-        > table {
-            width: max-content;
+
+    @include MixScreen(null, $sizeXL) { @include Prods((
+            head_font_size: 24px,
+            head_line_height: 28px,
+            text_font_size: 16px,
+            text_line_height: 21px,
+            head_margin_bot: 16px,
+            info_margin_bot: 20px,
+            info_margin_top: 20px,
+            cards_margin_bot: 1px,
+            prods_padding: 0,
+            cards_gap: 16px,
+            cards_template_col: 2,
+            card_padding: 16px,
+            img_height: 118px,
+            img_margin_bot: 8px,
+
+    )); }
+    @include MixScreen($sizeXL, $size4XL) { @include Prods((
+            cards_gap: 16px,
+            card_padding: 16px,
+            img_height: 118px,
+            img_margin_bot: 8px,
+    )); }
+    @include MixScreen($size4XL) { @include Prods(()); }
+}
+
+.prod {
+    @mixin Prod($params: null) {
+        margin-top: 24px;
+        margin-bottom: 84px;
+        &-header {
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 39px;
+            margin-bottom: 20px;
         }
-        > div {
-            overflow-x: auto;
-            scrollbar-width: none;
-            width: 100%;
-            position: relative;
+        &-info {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            &-img {
+                width: 50%;
+                height: 450px;
+                > img {
+                    object-fit: contain;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &-text {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding-bottom: 140px;
+                padding-top: 34px;
+                > div:first-child {}
+                > div:last-child {
+                    text-align: end;
+                    > a {
+                        //@include btn_accent;
+                    }
+                }
+            }
+        }
+        &-table {
+            display: flex;
             > table {
+                width: max-content;
+            }
+            > div {
+                overflow-x: auto;
+                scrollbar-width: none;
                 width: 100%;
+                position: relative;
+                > table {
+                    width: 100%;
+                }
             }
-        }
-         table {
-            border-spacing: 0;
-            //width: 100%;
-            th, td {
-                text-wrap: nowrap;
-                height: 52px;
-                padding: 8px;
-                font-size: 14px;
-                line-height: 18px;
-                text-align: left;
-            }
-            td {
-                border-bottom: 1px solid $colorTextDark;
-            }
-            > thead {
-                background-color: $colorBackgroundAccent;
-                color: $colorTextLight;
+            table {
+                border-spacing: 0;
+                //width: 100%;
+                th, td {
+                    text-wrap: nowrap;
+                    height: 52px;
+                    padding: 8px;
+                    font-size: 14px;
+                    line-height: 18px;
+                    text-align: left;
+                }
+                td {
+                    border-bottom: 1px solid $colorTextDark;
+                }
+                > thead {
+                    background-color: $colorBackgroundAccent;
+                    color: $colorTextLight;
+                }
             }
         }
     }
+
+    @include MixScreen(null, $sizeL) { @include Prod(()); }
+    @include MixScreen($sizeL) { @include Prod(()); }
 }

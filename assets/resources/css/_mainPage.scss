@@ -2,128 +2,234 @@
 @use "variable" as *;
 
 .main-banner {
-    display: flex;
-    margin-bottom: 84px;
-    align-items: center;
-    justify-content: center;
-    &-img {
-        position: relative;
-        flex: auto;
-        > div {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            padding: 64px 144px;
-            background-color: #FFFFFF4D;
-            > div:first-child {
-                font-weight: 700;
-                font-size: 64px;
-                line-height: 84px;
-                margin-bottom: 8px;
+    @mixin MainBanner($params: null) {
+        padding: GetParam($params, padding_container, 0 10%);
+        display: flex;
+        margin-bottom: GetParam($params, margin_bot, 84px);
+        align-items: center;
+        justify-content: center;
+        &-img {
+            position: relative;
+            flex: auto;
+            height: GetParam($params, img_height, null);
+            > div {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: GetParam($params, justify_content_text, null);
+                flex-direction: column;
+                padding: GetParam($params, padding_img, 64px 144px);
+                background-color: #FFFFFF4D;
+                > div:first-child {
+                    font-weight: 700;
+                    font-size: GetParam($params, font_size_head, 64px);
+                    line-height: GetParam($params, line_height_head, 84px);
+                    margin-bottom: 8px;
+                }
+                > div:last-child {
+                    font-size: GetParam($params, font_size_text, null);
+                    line-height: GetParam($params, line_height_text, null);
+                }
             }
-            > div:last-child {}
+            > img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
         }
-        > img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
+        &-arrow {
+            display: GetParam($params, display_arrow, null);
+            flex: 30%;
+            text-align: center;
+            cursor: pointer;
+            padding: 40px 0;
+            &:hover {
+                opacity: 0.5;
+            }
+            &.left > img {
+                transform: rotate(180deg);
+            }
         }
     }
-    &-arrow {
-        flex: 30%;
-        text-align: center;
-        cursor: pointer;
-        padding: 40px 0;
-        &.left > img {
-            transform: rotate(180deg);
-        }
-    }
+
+
+    @include MixScreen(null, $size2XL) { @include MainBanner((
+            display_arrow: none,
+            padding_img: 50px 90px 50px 30px,
+            padding_container: 0,
+            margin_bot: 0,
+            img_height: 280px,
+            font_size_head: 40px,
+            line_height_head: 52px,
+            font_size_text: 16px,
+            line_height_text: 20px,
+    )); }
+    @include MixScreen($size2XL) { @include MainBanner((
+            justify_content_text: center,
+    )); }
 }
 
 .main-prod {
-    display: flex;
-    margin-bottom: 84px;
-    &-info {
-        flex: none;
-        width: 340px;
-        height: min-content;
-        padding: 20px 0 48px 24px;
-        background-color: $colorBackgroundDark;
-        > div:nth-child(1) {
-            margin-bottom: 20px;
-            font-size: 16px;
-            font-weight: 500;
-            color: $colorTextAccent;
-            text-transform: uppercase;
-        }
-        > div:nth-child(2) {
-            margin: 0 45px 60px 16px;
-            font-size: 36px;
-            line-height: 46px;
-            color: $colorTextLight;
-        }
-        > div:nth-child(3) {
-            margin-left: 16px;
-            > a {
-                display: inline-block;
-                width: 100%;
-                padding: 16px 40px;
-                background-color: $colorBtnAccent;
+    @mixin MainProd($params: null) {
+        padding: GetParam($params, padding_container, 0 10%);
+        display: flex;
+        flex-direction: GetParam($params, flex_direction, null);
+        margin-bottom: GetParam($params, margin_bot, 84px);
+        &-info {
+            flex: none;
+            width: GetParam($params, width_text, 100%);
+            height: min-content;
+            padding: GetParam($params, padding_text_wrap, 20px 4% 0);
+            background-color: $colorBackgroundDark;
+            > div:nth-child(1) {
+                display: GetParam($params, display_head, null);
+                margin-bottom: 20px;
+                font-size: 16px;
+                font-weight: 500;
+                text-transform: uppercase;
+                > a {
+                    color: $colorTextAccent;
+                    &:hover {
+                        color: $colorTextLight;
+                    }
+                }
+            }
+            > div:nth-child(2) {
+                margin: GetParam($params, margin_text, null);
+                font-size: GetParam($params, font_size_head, 36px);
+                line-height: GetParam($params, line_height_head, 46px);
                 color: $colorTextLight;
-                cursor: pointer;
+            }
+            > div:nth-child(3) {
+                display: GetParam($params, display_head, null);
+                margin-left: 16px;
+                > a {
+                    display: inline-block;
+                    width: 100%;
+                    padding: 16px 40px;
+                    background-color: $colorBtnAccent;
+                    color: $colorTextLight;
+                    cursor: pointer;
+                }
             }
         }
-    }
-    &-grid {
-        flex: auto;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        padding: 60px 60px 60px 40px;
-        background-color: $colorBackgroundDark;
-        &-card {
-            padding: 24px 40px;
-            background-color: $colorBackgroundLight;
-            &-img {
-                //width: 340px;
-                width: 100%;
-                height: 262px;
-                margin-bottom: 24px;
-                > img {
-                    object-fit: cover;
-                    height: 100%;
+        &-grid {
+            flex: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: GetParam($params, card_grid_gap, 30px);
+            padding: GetParam($params, padding_card_wrap, 60px 60px 60px 40px);
+            background-color: $colorBackgroundDark;
+            &-card {
+                padding: GetParam($params, padding_card, 24px 40px);
+                background-color: $colorBackgroundLight;
+                text-align: GetParam($params, text_align, null);
+                cursor: pointer;
+                &:hover {
+                    color: $colorTextAccent;
+                }
+                &-img {
+                    //width: 340px;
                     width: 100%;
+                    height: GetParam($params, height_img, 262px);
+                    margin-bottom: GetParam($params, img_margin_bot, 24px);
+                    > img {
+                        object-fit: cover;
+                        height: 100%;
+                        width: 100%;
+                    }
                 }
             }
         }
     }
+
+    @include MixScreen(null, $size2XL) { @include MainProd((
+            display_head: none,
+            font_size_head: 20px,
+            line_height_head: 26px,
+            flex_direction: column,
+            height_img: 118px,
+            text_align: center,
+            padding_container: 0,
+            margin_bot: 20px,
+            card_grid_gap: 16px,
+            padding_card_wrap: 16px 4%,
+            padding_card: 8px,
+            img_margin_bot: 8px
+    )); }
+    @include MixScreen($size2XL, $size5XL) { @include MainProd((
+            width_text: 340px,
+            padding_text_wrap: 20px 0 48px 24px,
+            margin_text: 0 45px 60px 16px,
+            height_img: 118px,
+            card_grid_gap: 16px,
+            padding_card_wrap: 16px 4%,
+            padding_card: 8px,
+            img_margin_bot: 8px
+    )); }
+    @include MixScreen($size5XL) { @include MainProd((
+            width_text: 340px,
+            padding_text_wrap: 20px 0 48px 24px,
+            margin_text: 0 45px 60px 16px
+    )); }
 }
 
 .main-about {
-    margin-bottom: 84px;
-    &-text {
-        margin-bottom: 32px;
-        width: 70%;
-        > div:first-child {
-            font-size: 36px;
-            line-height: 46px;
-            margin-bottom: 16px;
-        }
-    }
-    &-icons {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        grid-column-gap: 80px;
-        grid-row-gap: 40px;
-        &-item {
-            > div {
-                margin-top: 12px;
-                font-size: 14px;
-                line-height: 18px;
+    @mixin MainAbout($params: null) {
+        margin-bottom: GetParam($params, margin_bot, 84px);
+        &-text {
+            margin-bottom: GetParam($params, text_margin_bottom, 32px);
+            width: GetParam($params, width_text, null);
+            > div:last-child {
+                font-size: GetParam($params, font_size_text, null);
+                line-height: GetParam($params, line_height_text, null);
             }
         }
+        &-icons {
+            display: grid;
+            grid-template-columns: repeat(GetParam($params, grid_template, 7), 1fr);
+            grid-column-gap: GetParam($params, gap_col, null);
+            grid-row-gap: GetParam($params, gap_row, 18px);
+            &-item {
+                > img {
+                    width: GetParam($params, img_width, null);
+                }
+                > div {
+                    margin-top: 12px;
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+        }
+        &-head {
+            font-size: GetParam($params, font_size_head, 36px);
+            line-height: GetParam($params, line_height_head, 46px);
+            margin-bottom: GetParam($params, head_margin_bottom, 16px);
+        }
     }
+
+    @include MixScreen(null, $size2XL) { @include MainAbout((
+            grid_template: 2,
+            font_size_head: 20px,
+            line_height_head: 26px,
+            font_size_text: 16px,
+            line_height_text: 22px,
+            img_width: 40px,
+            text_margin_bottom: 20px,
+            head_margin_bottom: 8px,
+            margin_bot: 46px
+    )); }
+    @include MixScreen($size2XL, $size5XL) { @include MainAbout((
+            grid_template: 4,
+            gap_col: 80px,
+            gap_row: 40px,
+            width_text: 70%
+    )); }
+    @include MixScreen($size5XL) { @include MainAbout((
+            gap_col: 80px,
+            gap_row: 40px,
+            width_text: 70%
+    )); }
+
 }

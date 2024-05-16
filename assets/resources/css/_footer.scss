@@ -2,30 +2,49 @@
 @use "variable" as *;
 
 .footer {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    background-color: $colorDarker;
-    a {
-        padding: 6px;
-        color: $colorTextLight;
-    }
-    &-logo {
-        > img {
-            height: 32px;
-            width: auto;
+    @mixin Footer($params: null) {
+        display: flex;
+        flex-direction: GetParam($params, flex_dir, null);
+        justify-content: space-between;
+        gap: 16px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        background-color: $colorDarker;
+        > div:first-child {
+            text-align: GetParam($params, align_items, null);
+        }
+        a {
+            padding: 6px;
+            color: $colorTextLight;
+            &:hover {
+                color: $colorTextAccent;
+            }
+        }
+        &-logo {
+            > img {
+                height: 32px;
+                width: auto;
+            }
+        }
+        &-links {
+            display: flex;
+            flex-direction: column;
+            margin-top: GetParam($params, links_margin_top, 24px);
+            //text-align: GetParam($params, align_items, null);
+        }
+        &-contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: GetParam($params, align_items, end);
+            justify-content: end;
         }
     }
-    &-links {
-        display: flex;
-        flex-direction: column;
-        margin-top: 24px;
-    }
-    &-contacts {
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        justify-content: end;
-    }
+
+    @include MixScreen(null, $sizeXS) { @include Footer((
+            align_items: center,
+            flex_dir: column,
+            links_margin_top: 8px
+    )); }
+    @include MixScreen($sizeXS) { @include Footer(()); }
+
 }

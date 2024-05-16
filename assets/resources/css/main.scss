@@ -44,8 +44,13 @@ a {
 }
 
 .container {
-    padding-left: 10%;
-    padding-right: 10%;
+    @mixin Container($params: null) {
+        padding-left: GetParam($params, padding_container, 10%);
+        padding-right: GetParam($params, padding_container, 10%);
+    }
+    @include MixScreen(null, $sizeL) { @include Container((padding_container: 4%)); }
+    @include MixScreen($sizeL) { @include Container(()); }
+
 }
 
 .btn {

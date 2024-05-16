@@ -2,22 +2,45 @@
 @use "variable" as *;
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    a {
-        padding: 6px 0;
-        color: $colorTextDark;
-    }
-    &-logo {
-        > img {
-            height: 24px;
-            width: auto;
+    @mixin Header($params: null) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        a {
+            padding: GetParam($params, a_padding, 6px 0);
+            color: $colorTextDark;
+            font-size: GetParam($params, a_font_size, null);
+            line-height: GetParam($params, a_line_height, null);
+            &:hover {
+                color: $colorTextAccent;
+            }
+        }
+        &-logo {
+            > img {
+                height: 24px;
+                width: auto;
+            }
+        }
+        &-contacts {
+            display: flex;
+            flex-direction: GetParam($params, contacts_flex_dir, null);
+            gap: GetParam($params, contacts_gap, 40px);
         }
     }
-    &-contacts {
-        display: flex;
-        gap: 40px;
-    }
+
+    @include MixScreen(null, $sizeL) { @include Header((
+            contacts_flex_dir: column,
+            contacts_gap: 0,
+            a_padding: 4px 0,
+            a_font_size: 14px,
+            a_line_height: 18px,
+    )); }
+    @include MixScreen($sizeL, $size2XL) { @include Header((
+            a_font_size: 14px,
+            a_line_height: 18px,
+    )); }
+    @include MixScreen($size2XL) { @include Header(()); }
+
 }
