@@ -123,6 +123,7 @@
             background-color: $colorBackgroundDark;
             &-card {
                 padding: GetParam($params, padding_card, 24px 40px);
+                color: $colorTextDark;
                 background-color: $colorBackgroundLight;
                 text-align: GetParam($params, text_align, null);
                 cursor: pointer;

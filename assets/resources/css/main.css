@@ -305,6 +305,7 @@
   }
   .main-prod-grid-card {
     padding: 8px;
+    color: #000;
     background-color: #FFF;
     text-align: center;
     cursor: pointer;
@@ -375,6 +376,7 @@
   }
   .main-prod-grid-card {
     padding: 8px;
+    color: #000;
     background-color: #FFF;
     cursor: pointer;
   }
@@ -444,6 +446,7 @@
   }
   .main-prod-grid-card {
     padding: 24px 40px;
+    color: #000;
     background-color: #FFF;
     cursor: pointer;
   }
@@ -673,7 +676,7 @@
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 560px) {
   .prod {
     margin-top: 24px;
     margin-bottom: 84px;
@@ -686,12 +689,12 @@
   }
   .prod-info {
     display: flex;
+    flex-direction: column;
     gap: 20px;
     margin-bottom: 40px;
   }
   .prod-info-img {
-    width: 50%;
-    height: 450px;
+    height: 240px;
   }
   .prod-info-img > img {
     object-fit: contain;
@@ -699,15 +702,17 @@
     height: 100%;
   }
   .prod-info-text {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 140px;
-    padding-top: 34px;
+    padding-top: 24px;
+  }
+  .prod-info-text > div:first-child {
+    text-align: center;
   }
   .prod-info-text > div:last-child {
-    text-align: end;
+    text-align: center;
+    padding-top: 16px;
   }
   .prod-table {
     display: flex;
@@ -743,7 +748,7 @@
     color: #FFF;
   }
 }
-@media (min-width: 681px) {
+@media (min-width: 561px) {
   .prod {
     margin-top: 24px;
     margin-bottom: 84px;

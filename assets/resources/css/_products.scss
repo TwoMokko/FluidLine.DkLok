@@ -87,11 +87,12 @@
         }
         &-info {
             display: flex;
+            flex-direction: GetParam($params, info_flex_dir, null);
             gap: 20px;
             margin-bottom: 40px;
             &-img {
-                width: 50%;
-                height: 450px;
+                width: GetParam($params, prod_width, null);
+                height: GetParam($params, img_height, 450px);
                 > img {
                     object-fit: contain;
                     width: 100%;
@@ -99,15 +100,18 @@
                 }
             }
             &-text {
-                width: 50%;
+                width: GetParam($params, prod_width, null);
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                padding-bottom: 140px;
-                padding-top: 34px;
-                > div:first-child {}
+                padding-bottom: GetParam($params, text_pad_bot, null);
+                padding-top: GetParam($params, text_pad_top, 34px);
+                > div:first-child {
+                    text-align: GetParam($params, text_align, null);
+                }
                 > div:last-child {
-                    text-align: end;
+                    text-align: GetParam($params, text_align, end);
+                    padding-top: GetParam($params, btn_pad_top, null);
                     > a {
                         //@include btn_accent;
                     }
@@ -150,6 +154,15 @@
         }
     }
 
-    @include MixScreen(null, $sizeL) { @include Prod(()); }
-    @include MixScreen($sizeL) { @include Prod(()); }
+    @include MixScreen(null, $sizeM) { @include Prod((
+            info_flex_dir: column,
+            img_height: 240px,
+            text_pad_top: 24px,
+            text_align: center,
+            btn_pad_top: 16px,
+    )); }
+    @include MixScreen($sizeM) { @include Prod((
+            prod_width: 50%,
+            text_pad_bot: 140px
+    )); }
 }

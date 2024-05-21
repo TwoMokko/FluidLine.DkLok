@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 13 2024 г., 15:57
+-- Время создания: Май 21 2024 г., 11:41
 -- Версия сервера: 10.8.4-MariaDB
 -- Версия PHP: 8.1.9
 
@@ -719,7 +719,7 @@ CREATE TABLE `modx_content_type` (
 --
 
 INSERT INTO `modx_content_type` (`id`, `name`, `description`, `mime_type`, `file_extensions`, `icon`, `headers`, `binary`) VALUES
-(1, 'HTML', 'HTML content', 'text/html', '.html', '', NULL, 0),
+(1, 'HTML', 'HTML content', 'text/html', '', '', NULL, 0),
 (2, 'XML', 'XML content', 'text/xml', '.xml', 'icon-xml', NULL, 0),
 (3, 'Text', 'Plain text content', 'text/plain', '.txt', 'icon-txt', NULL, 0),
 (4, 'CSS', 'CSS content', 'text/css', '.css', 'icon-css', NULL, 0),
@@ -891,7 +891,10 @@ CREATE TABLE `modx_deprecated_call` (
 --
 
 INSERT INTO `modx_deprecated_call` (`id`, `method`, `call_count`, `caller`, `caller_file`, `caller_line`) VALUES
-(1, 1, 11, 'MODX\\Revolution\\Registry\\modRegistry::_initRegister', 'C:\\OSPanel\\domains\\dk-lok\\core\\src\\Revolution\\Registry\\modRegistry.php', 173);
+(1, 1, 13, 'MODX\\Revolution\\Registry\\modRegistry::_initRegister', 'C:\\OSPanel\\domains\\dk-lok\\core\\src\\Revolution\\Registry\\modRegistry.php', 173),
+(2, 2, 10, 'xPDO\\Om\\xPDOQuery::__construct', 'C:\\OSPanel\\domains\\dk-lok\\core\\vendor\\xpdo\\xpdo\\src\\xPDO\\Om\\xPDOQuery.php', 122),
+(3, 2, 10, 'xPDO\\xPDO::call', 'C:\\OSPanel\\domains\\dk-lok\\core\\vendor\\xpdo\\xpdo\\src\\xPDO\\xPDO.php', 774),
+(4, 2, 10, 'MODX\\Revolution\\modAccessibleObject::loadCollection', 'C:\\OSPanel\\domains\\dk-lok\\core\\src\\Revolution\\modAccessibleObject.php', 164);
 
 -- --------------------------------------------------------
 
@@ -911,7 +914,8 @@ CREATE TABLE `modx_deprecated_method` (
 --
 
 INSERT INTO `modx_deprecated_method` (`id`, `definition`, `since`, `recommendation`) VALUES
-(1, 'registry.modDbRegister', '3.0', 'Replace references to class registry.modDbRegister with MODX\\Revolution\\Registry\\modDbRegister to take advantage of PSR-4 autoloading.');
+(1, 'registry.modDbRegister', '3.0', 'Replace references to class registry.modDbRegister with MODX\\Revolution\\Registry\\modDbRegister to take advantage of PSR-4 autoloading.'),
+(2, 'modResource', '3.0', 'Replace references to class modResource with MODX\\Revolution\\modResource to take advantage of PSR-4 autoloading.');
 
 -- --------------------------------------------------------
 
@@ -1111,7 +1115,60 @@ INSERT INTO `modx_manager_log` (`id`, `user`, `occurred`, `action`, `classKey`, 
 (61, 1, '2024-05-13 14:10:22', 'propertyset_update_from_element', 'MODX\\Revolution\\modPropertySet', 'MODX\\Revolution\\modChunk 9 Default'),
 (62, 1, '2024-05-13 14:10:32', 'resource_update', 'MODX\\Revolution\\modResource', '1'),
 (63, 1, '2024-05-13 14:10:45', 'resource_update', 'MODX\\Revolution\\modResource', '1'),
-(64, 1, '2024-05-13 14:13:44', 'chunk_create', 'MODX\\Revolution\\modChunk', '10');
+(64, 1, '2024-05-13 14:13:44', 'chunk_create', 'MODX\\Revolution\\modChunk', '10'),
+(65, 1, '2024-05-14 09:18:10', 'resource_update', 'MODX\\Revolution\\modResource', '1'),
+(66, 1, '2024-05-14 09:19:53', 'chunk_update', 'MODX\\Revolution\\modChunk', '7'),
+(67, 1, '2024-05-14 09:19:53', 'propertyset_update_from_element', 'MODX\\Revolution\\modPropertySet', 'MODX\\Revolution\\modChunk 7 Default'),
+(68, 1, '2024-05-14 09:20:18', 'resource_update', 'MODX\\Revolution\\modResource', '1'),
+(69, 1, '2024-05-14 10:07:38', 'snippet_create', 'MODX\\Revolution\\modSnippet', '1'),
+(70, 1, '2024-05-14 13:17:02', 'resource_update', 'MODX\\Revolution\\modResource', '2'),
+(71, 1, '2024-05-14 13:35:42', 'clear_cache', '', 'mgr'),
+(72, 1, '2024-05-14 13:35:48', 'clear_cache', '', 'mgr'),
+(73, 1, '2024-05-14 14:11:31', 'setting_update', 'MODX\\Revolution\\modSystemSetting', 'friendly_urls_strict'),
+(74, 1, '2024-05-14 14:11:45', 'setting_update', 'MODX\\Revolution\\modSystemSetting', 'friendly_urls'),
+(75, 1, '2024-05-14 14:11:54', 'clear_cache', '', 'mgr'),
+(76, 1, '2024-05-14 14:12:13', 'clear_cache', '', 'mgr'),
+(77, 1, '2024-05-14 14:12:24', 'resource_update', 'MODX\\Revolution\\modResource', '2'),
+(78, 1, '2024-05-14 14:18:27', 'setting_update', 'MODX\\Revolution\\modSystemSetting', 'error_page'),
+(79, 1, '2024-05-14 14:19:37', 'setting_update', 'MODX\\Revolution\\modSystemSetting', 'container_suffix'),
+(80, 1, '2024-05-14 14:19:43', 'clear_cache', '', 'mgr'),
+(81, 1, '2024-05-14 14:19:55', 'clear_cache', '', 'mgr'),
+(82, 1, '2024-05-14 14:20:29', 'setting_update', 'MODX\\Revolution\\modSystemSetting', 'container_suffix'),
+(83, 1, '2024-05-14 14:24:56', 'clear_cache', '', 'mgr'),
+(84, 1, '2024-05-14 14:25:02', 'clear_cache', '', 'mgr'),
+(85, 1, '2024-05-14 14:26:42', 'clear_cache', '', 'mgr'),
+(86, 1, '2024-05-14 14:26:47', 'clear_cache', '', 'mgr'),
+(87, 1, '2024-05-14 14:28:27', 'clear_cache', '', 'mgr'),
+(88, 1, '2024-05-14 14:28:31', 'clear_cache', '', 'mgr'),
+(89, 1, '2024-05-14 14:29:11', 'clear_cache', '', 'mgr'),
+(90, 1, '2024-05-14 14:29:39', 'resource_update', 'MODX\\Revolution\\modResource', '2'),
+(91, 1, '2024-05-14 14:29:43', 'clear_cache', '', 'mgr'),
+(92, 1, '2024-05-14 14:30:54', 'resource_update', 'MODX\\Revolution\\modResource', '2'),
+(93, 1, '2024-05-14 14:31:53', 'resource_update', 'MODX\\Revolution\\modResource', '2'),
+(94, 1, '2024-05-14 14:32:01', 'clear_cache', '', 'mgr'),
+(95, 1, '2024-05-14 14:32:05', 'clear_cache', '', 'mgr'),
+(96, 1, '2024-05-14 14:32:19', 'resource_update', 'MODX\\Revolution\\modResource', '2'),
+(97, 1, '2024-05-14 14:33:14', 'resource_update', 'MODX\\Revolution\\modResource', '2'),
+(98, 1, '2024-05-14 14:33:55', 'setting_update', 'MODX\\Revolution\\modSystemSetting', 'container_suffix'),
+(99, 1, '2024-05-14 14:34:36', 'clear_cache', '', 'mgr'),
+(100, 1, '2024-05-14 14:34:42', 'clear_cache', '', 'mgr'),
+(101, 1, '2024-05-14 14:35:05', 'setting_update', 'MODX\\Revolution\\modSystemSetting', 'container_suffix'),
+(102, 1, '2024-05-14 14:38:04', 'setting_update', 'MODX\\Revolution\\modSystemSetting', 'friendly_urls_strict'),
+(103, 1, '2024-05-14 14:39:40', 'content_type_save', 'MODX\\Revolution\\modContentType', '1'),
+(104, 1, '2024-05-14 14:39:54', 'resource_update', 'MODX\\Revolution\\modResource', '2'),
+(105, 1, '2024-05-14 14:39:58', 'clear_cache', '', 'mgr'),
+(106, 1, '2024-05-14 14:40:01', 'clear_cache', '', 'mgr'),
+(107, 1, '2024-05-14 15:04:45', 'resource_update', 'MODX\\Revolution\\modResource', '1'),
+(108, 1, '2024-05-14 15:27:17', 'resource_update', 'MODX\\Revolution\\modResource', '1'),
+(109, 1, '2024-05-16 12:07:11', 'snippet_create', 'MODX\\Revolution\\modSnippet', '2'),
+(110, 1, '2024-05-16 12:07:41', 'chunk_create', 'MODX\\Revolution\\modChunk', '11'),
+(111, 1, '2024-05-21 10:40:56', 'resource_update', 'MODX\\Revolution\\modResource', '1'),
+(112, 1, '2024-05-21 10:41:35', 'clear_cache', '', 'mgr'),
+(113, 1, '2024-05-21 11:09:12', 'resource_update', 'MODX\\Revolution\\modResource', '4'),
+(114, 1, '2024-05-21 11:09:26', 'clear_cache', '', 'mgr'),
+(115, 1, '2024-05-21 11:10:16', 'resource_update', 'MODX\\Revolution\\modResource', '1'),
+(116, 1, '2024-05-21 11:10:24', 'resource_update', 'MODX\\Revolution\\modResource', '4'),
+(117, 1, '2024-05-21 11:16:23', 'resource_update', 'MODX\\Revolution\\modResource', '4');
 
 -- --------------------------------------------------------
 
@@ -1318,13 +1375,6 @@ CREATE TABLE `modx_register_messages` (
   `kill` tinyint(1) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `modx_register_messages`
---
-
-INSERT INTO `modx_register_messages` (`topic`, `id`, `created`, `valid`, `accessed`, `accesses`, `expires`, `payload`, `kill`) VALUES
-(1, 'c4ca4238a0b923820dcc509a6f75849b', '2024-05-13 15:43:39', '2024-05-13 15:43:39', NULL, 0, 1715604579, 'if (time() > 1715604579) return null;\nreturn 1;\n', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -1385,7 +1435,7 @@ CREATE TABLE `modx_session` (
 --
 
 INSERT INTO `modx_session` (`id`, `access`, `data`) VALUES
-('r4jdpb42leeb01juh5oa3ljeuem6e5p4', 1715604221, 'modx.user.contextTokens|a:1:{s:3:\"mgr\";i:1;}manager_language|s:2:\"ru\";modx.user.0.resourceGroups|a:1:{s:3:\"mgr\";a:0:{}}modx.user.0.attributes|a:1:{s:3:\"mgr\";a:5:{s:32:\"MODX\\Revolution\\modAccessContext\";a:1:{s:3:\"web\";a:1:{i:0;a:3:{s:9:\"principal\";i:0;s:9:\"authority\";i:0;s:6:\"policy\";a:1:{s:4:\"load\";b:1;}}}}s:38:\"MODX\\Revolution\\modAccessResourceGroup\";a:0:{}s:33:\"MODX\\Revolution\\modAccessCategory\";a:0:{}s:44:\"MODX\\Revolution\\Sources\\modAccessMediaSource\";a:0:{}s:34:\"MODX\\Revolution\\modAccessNamespace\";a:0:{}}}modx.mgr.user.token|s:52:\"modx6638dc69c0e010.14642296_16638dc951ba925.18821574\";modx.mgr.session.cookie.lifetime|i:0;modx.mgr.user.config|a:0:{}newResourceTokens|a:30:{i:0;s:23:\"663a12113d2e16.19688405\";i:1;s:23:\"663a1f5364e060.73607046\";i:2;s:23:\"663a26c4361d40.82157526\";i:3;s:23:\"663a26d313bf78.25505984\";i:4;s:23:\"663a27c4202726.02022242\";i:5;s:23:\"663a27cab5b7e6.85531678\";i:6;s:23:\"663a29b158ae84.42178067\";i:7;s:23:\"663b3ba31f0e37.31385152\";i:8;s:23:\"663b3c6f4f5156.66859073\";i:9;s:23:\"663b3d098a30d6.02079102\";i:10;s:23:\"663b3e8272a491.20842022\";i:11;s:23:\"6641b45c6973f9.18647155\";i:12;s:23:\"6641b7718a9839.36705244\";i:13;s:23:\"6641b77c445bf2.08196002\";i:14;s:23:\"6641b9a85bae19.75346458\";i:15;s:23:\"6641bc53d1e803.44503337\";i:16;s:23:\"6641c8e3e34676.82938865\";i:17;s:23:\"6641c8ee2d1f97.21164278\";i:18;s:23:\"6641c972453da3.56798210\";i:19;s:23:\"6641f1a64c1e87.34482211\";i:20;s:23:\"6641f257123b32.35956781\";i:21;s:23:\"6641f2a188cad2.07515771\";i:22;s:23:\"6641f32ab89366.51768608\";i:23;s:23:\"6641f330e5f920.27653128\";i:24;s:23:\"6641f370e579c1.59867343\";i:25;s:23:\"6641f37f26c130.79478024\";i:26;s:23:\"6641f39574f802.76818076\";i:27;s:23:\"6641f45d43b484.04497346\";i:28;s:23:\"6641f5215bec92.63334970\";i:29;s:23:\"66420afc733831.02075933\";}');
+('r4jdpb42leeb01juh5oa3ljeuem6e5p4', 1716279018, 'modx.user.contextTokens|a:1:{s:3:\"mgr\";i:1;}manager_language|s:2:\"ru\";modx.user.0.resourceGroups|a:1:{s:3:\"mgr\";a:0:{}}modx.user.0.attributes|a:1:{s:3:\"mgr\";a:5:{s:32:\"MODX\\Revolution\\modAccessContext\";a:1:{s:3:\"web\";a:1:{i:0;a:3:{s:9:\"principal\";i:0;s:9:\"authority\";i:0;s:6:\"policy\";a:1:{s:4:\"load\";b:1;}}}}s:38:\"MODX\\Revolution\\modAccessResourceGroup\";a:0:{}s:33:\"MODX\\Revolution\\modAccessCategory\";a:0:{}s:44:\"MODX\\Revolution\\Sources\\modAccessMediaSource\";a:0:{}s:34:\"MODX\\Revolution\\modAccessNamespace\";a:0:{}}}modx.mgr.user.token|s:52:\"modx6638dc69c0e010.14642296_16638dc951ba925.18821574\";modx.mgr.session.cookie.lifetime|i:0;modx.mgr.user.config|a:0:{}newResourceTokens|a:68:{i:0;s:23:\"663a12113d2e16.19688405\";i:1;s:23:\"663a1f5364e060.73607046\";i:2;s:23:\"663a26c4361d40.82157526\";i:3;s:23:\"663a26d313bf78.25505984\";i:4;s:23:\"663a27c4202726.02022242\";i:5;s:23:\"663a27cab5b7e6.85531678\";i:6;s:23:\"663a29b158ae84.42178067\";i:7;s:23:\"663b3ba31f0e37.31385152\";i:8;s:23:\"663b3c6f4f5156.66859073\";i:9;s:23:\"663b3d098a30d6.02079102\";i:10;s:23:\"663b3e8272a491.20842022\";i:11;s:23:\"6641b45c6973f9.18647155\";i:12;s:23:\"6641b7718a9839.36705244\";i:13;s:23:\"6641b77c445bf2.08196002\";i:14;s:23:\"6641b9a85bae19.75346458\";i:15;s:23:\"6641bc53d1e803.44503337\";i:16;s:23:\"6641c8e3e34676.82938865\";i:17;s:23:\"6641c8ee2d1f97.21164278\";i:18;s:23:\"6641c972453da3.56798210\";i:19;s:23:\"6641f1a64c1e87.34482211\";i:20;s:23:\"6641f257123b32.35956781\";i:21;s:23:\"6641f2a188cad2.07515771\";i:22;s:23:\"6641f32ab89366.51768608\";i:23;s:23:\"6641f330e5f920.27653128\";i:24;s:23:\"6641f370e579c1.59867343\";i:25;s:23:\"6641f37f26c130.79478024\";i:26;s:23:\"6641f39574f802.76818076\";i:27;s:23:\"6641f45d43b484.04497346\";i:28;s:23:\"6641f5215bec92.63334970\";i:29;s:23:\"66420afc733831.02075933\";i:30;s:23:\"6642f0396bacc5.96851018\";i:31;s:23:\"66430299af3802.72504749\";i:32;s:23:\"66433a06061820.87086125\";i:33;s:23:\"66433a0ccc7520.45194068\";i:34;s:23:\"66433a16d76076.60239878\";i:35;s:23:\"66433e4da0d163.85867488\";i:36;s:23:\"66433e5c9a4ab1.80103220\";i:37;s:23:\"664346576caf12.10068187\";i:38;s:23:\"66434663270593.52535434\";i:39;s:23:\"664346f4ce0054.64187569\";i:40;s:23:\"664348d28b4581.89784966\";i:41;s:23:\"664348deeac771.99805362\";i:42;s:23:\"66434a119de103.64273958\";i:43;s:23:\"66434a857a1ac8.92337716\";i:44;s:23:\"66434a892da827.19778042\";i:45;s:23:\"66434a957f4ac9.11849514\";i:46;s:23:\"66434ad44f8445.00788204\";i:47;s:23:\"66434aed257cd5.56102918\";i:48;s:23:\"66434b0d92d986.42223436\";i:49;s:23:\"66434b13422b10.99898053\";i:50;s:23:\"66434b60396c38.18228908\";i:51;s:23:\"66434b83216ca4.50969514\";i:52;s:23:\"66434c40a6dea7.77721121\";i:53;s:23:\"66434cdfe3fbb5.00328365\";i:54;s:23:\"66434d37f0f198.01595031\";i:55;s:23:\"66434d7eea60e5.55800604\";i:56;s:23:\"66435355632c47.76234198\";i:57;s:23:\"664358a8170d41.54618517\";i:58;s:23:\"66444831269bf7.01388786\";i:59;s:23:\"6645caaa237a63.26348545\";i:60;s:23:\"664b14b3443b15.14320407\";i:61;s:23:\"664b2dfadbb288.85705898\";i:62;s:23:\"664b3033687fc1.53709928\";i:63;s:23:\"664c5003c55d94.95210438\";i:64;s:23:\"664c50336fd6b4.87090881\";i:65;s:23:\"664c56963e8f15.02603847\";i:66;s:23:\"664c56dc70c662.06242391\";i:67;s:23:\"664c56ea2ffd66.67167254\";}');
 
 -- --------------------------------------------------------
 
@@ -1444,10 +1494,10 @@ CREATE TABLE `modx_site_content` (
 --
 
 INSERT INTO `modx_site_content` (`id`, `type`, `pagetitle`, `longtitle`, `description`, `alias`, `link_attributes`, `published`, `pub_date`, `unpub_date`, `parent`, `isfolder`, `introtext`, `content`, `richtext`, `template`, `menuindex`, `searchable`, `cacheable`, `createdby`, `createdon`, `editedby`, `editedon`, `deleted`, `deletedon`, `deletedby`, `publishedon`, `publishedby`, `menutitle`, `donthit`, `privateweb`, `privatemgr`, `content_dispo`, `hidemenu`, `class_key`, `context_key`, `content_type`, `uri`, `uri_override`, `hide_children_in_tree`, `show_in_tree`, `properties`, `alias_visible`) VALUES
-(1, 'document', 'dk-lok', '', '', 'index', '', 1, 0, 0, 0, 0, '', '[[$product_page]]\r\n<!--[[$products_page]]-->\r\n<!--[[$main_page]]-->\r\n', 1, 2, 0, 1, 1, 1, 1715002487, 1, 1715598645, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 'MODX\\Revolution\\modDocument', 'web', 1, '', 0, 0, 1, NULL, 1),
-(2, 'document', 'products', 'Продукция', '', 'products', '', 1, 0, 0, 0, 0, '', '[[$products_page]]', 1, 2, 1, 1, 1, 1, 1715582832, 1, 1715598208, 0, 0, 0, 1715583060, 1, '', 0, 0, 0, 0, 0, 'MODX\\Revolution\\modDocument', 'web', 1, '', 0, 0, 1, NULL, 1),
-(3, 'document', '404', '', '', '404', '', 1, 0, 0, 0, 0, '', '[[$404]]', 1, 2, 2, 1, 1, 1, 1715597733, 1, 1715597800, 0, 0, 0, 1715597800, 1, '', 0, 0, 0, 0, 0, 'MODX\\Revolution\\modDocument', 'web', 1, '', 0, 0, 1, NULL, 1),
-(4, 'document', 'product', '', '', 'product', '', 0, 0, 0, 0, 0, '', '', 1, 2, 3, 1, 1, 1, 1715598429, 1, 1715598591, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 'MODX\\Revolution\\modDocument', 'web', 1, '', 0, 0, 1, NULL, 1);
+(1, 'document', 'dklok', '', '', 'index', '', 1, 0, 0, 0, 0, '', '[[$main_page]]\r\n', 1, 2, 0, 1, 1, 1, 1715002487, 1, 1716279016, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 'MODX\\Revolution\\modDocument', 'web', 1, 'index', 0, 0, 1, NULL, 1),
+(2, 'document', 'products', 'Продукция', '', 'products', '', 1, 0, 0, 0, 0, '', '[[$products_page]]', 1, 2, 1, 1, 1, 1, 1715582832, 1, 1715686794, 0, 0, 0, 1715583060, 1, '', 0, 0, 0, 0, 0, 'MODX\\Revolution\\modDocument', 'web', 1, 'products', 0, 0, 1, NULL, 1),
+(3, 'document', '404', '', '', '404', '', 1, 0, 0, 0, 0, '', '[[$404]]', 1, 2, 2, 1, 1, 1, 1715597733, 1, 1715597800, 0, 0, 0, 1715597800, 1, '', 0, 0, 0, 0, 0, 'MODX\\Revolution\\modDocument', 'web', 1, '404', 0, 0, 1, NULL, 1),
+(4, 'document', 'product', '', '', 'product', '', 1, 0, 0, 0, 0, '', '[[$product_page]]', 1, 2, 3, 1, 1, 1, 1715598429, 1, 1716279383, 0, 0, 0, 1716278940, 1, '', 0, 0, 0, 0, 0, 'MODX\\Revolution\\modDocument', 'web', 1, 'product', 0, 0, 1, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -1478,13 +1528,14 @@ CREATE TABLE `modx_site_htmlsnippets` (
 INSERT INTO `modx_site_htmlsnippets` (`id`, `source`, `property_preprocess`, `name`, `description`, `editor_type`, `category`, `cache_type`, `snippet`, `locked`, `properties`, `static`, `static_file`) VALUES
 (2, 1, 0, 'header', '', 0, 0, 0, '<header class=\"container header\">\r\n    <a href=\"\" class=\"header-logo\">\r\n        <img alt=\"logo\" src=\"/assets/resources/img/logo.svg\">\r\n    </a>\r\n    <div class=\"header-contacts\">\r\n        <a href=\"\">+7-777-777-77-77</a>\r\n        <a href=\"\">mail@dk-lok.ru</a>\r\n    </div>\r\n</header>', 0, 'a:0:{}', 1, 'assets/base/chunks/layout/header.html'),
 (3, 1, 0, 'footer', '', 0, 0, 0, '<footer class=\"container footer\">\r\n    <div>\r\n        <a href=\"\" class=\"footer-logo\">\r\n            <img alt=\"logo\" src=\"/assets/resources/img/logo.svg\">\r\n        </a>\r\n        <div class=\"footer-links\">\r\n            <a href=\"\">Продукция</a>\r\n            <a href=\"\">О компании</a>\r\n            <a href=\"\">Контакты</a>\r\n        </div>\r\n    </div>\r\n    <div class=\"footer-contacts\">\r\n        <a href=\"\">mail@dk-lok.ru</a>\r\n        <a href=\"\">+7-777-777-77-77</a>\r\n    </div>\r\n</footer>', 0, 'a:0:{}', 1, 'assets/base/chunks/layout/footer.html'),
-(4, 1, 0, 'head', '', 0, 0, 0, '<head>\r\n    <title>[[*pagetitle]]</title>\r\n    <meta name=\"description\" content=\"[[*description]]\"/>\r\n    <link rel=\"stylesheet\" href=\"/assets/resources/css/main.css\" type=\"text/css\">\r\n\r\n    <base href=\"[[!++site_url]]\" />\r\n\r\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap\" rel=\"stylesheet\">\r\n\r\n<!--    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">-->\r\n<!--    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>-->\r\n<!--    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap\" rel=\"stylesheet\">-->\r\n</head>', 0, 'a:0:{}', 1, 'assets/base/chunks/layout/head.html'),
-(5, 1, 0, 'main_page', '', 0, 0, 0, '<div class=\"container main-banner\">\r\n    <div class=\"main-banner-arrow left\"><</div>\r\n    <div class=\"main-banner-img\">\r\n        <div>\r\n            <div>Заголовок</div>\r\n            <div>Текстовое описание чего-то там чего-то там да да да д ад ад ад</div>\r\n        </div>\r\n        <img alt=\"banner\" src=\"/assets/resources/img/main-banner.jpg\">\r\n    </div>\r\n    <div class=\"main-banner-arrow right\">></div>\r\n</div>\r\n<div class=\"container main-prod\">\r\n    <div class=\"main-prod-info\">\r\n        <div>Продукция</div>\r\n        <div>Испытайте превосходное качество продукции прямо сейчас</div>\r\n        <div>\r\n            <a>Semiconductor</a>\r\n        </div>\r\n    </div>\r\n    <div class=\"main-prod-grid\">\r\n        <div class=\"main-prod-grid-card\">\r\n            <div class=\"main-prod-grid-card-img\">\r\n                <img src=\"/assets/resources/img/prod/prod-fit.png\" alt=\"prod\">\r\n            </div>\r\n            <div>Фитинги</div>\r\n        </div>\r\n        <div class=\"main-prod-grid-card\">\r\n            <div class=\"main-prod-grid-card-img\">\r\n                <img src=\"/assets/resources/img/prod/prod-fit.png\" alt=\"prod\">\r\n            </div>\r\n            <div>Клапаны</div>\r\n        </div>\r\n        <div class=\"main-prod-grid-card\">\r\n            <div class=\"main-prod-grid-card-img\">\r\n                <img src=\"/assets/resources/img/prod/prod-fit.png\" alt=\"prod\">\r\n            </div>\r\n            <div>Регуляторы давления</div>\r\n        </div>\r\n        <div class=\"main-prod-grid-card\">\r\n            <div class=\"main-prod-grid-card-img\">\r\n                <img src=\"/assets/resources/img/prod/prod-truby.jpg\" alt=\"prod\">\r\n            </div>\r\n            <div>Трубы</div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"container main-about\">\r\n    <div class=\"main-about-text\">\r\n        <div>О компании</div>\r\n        <div>DK-Lok ускоряет свой рост за счёт использования передовых мировых технологий в различных аспектах, включая конфиденциальность, долговечность, коррозионную стойкость и совместимость, в соответствии со сдвигом парадигмы в энергетическом секторе.</div>\r\n    </div>\r\n    <div class=\"main-about-icons\">\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>нефтегазовая промышленность</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>нефтехимическая промышленность</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>судостроение</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>медицина</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>автомобильная промышленность</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>аналитическое оборудование</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>микроэлектроника</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>фармацевтика</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>энергетика</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>пищевая промышленность</div>\r\n        </div>\r\n    </div>\r\n</div>', 0, 'a:0:{}', 1, 'assets/base/chunks/pages/main.html'),
-(6, 1, 0, 'products_page', '', 0, 0, 0, '[[$breadcrumbs]]\r\n<div class=\"container prods-info\">\r\n    <div>Фитинги</div>\r\n    <div>\r\n        Вся продукция DK-LOK имеет необходимые сертификаты качества и полностью соответствует Техническим регламентам Таможенного союза, ГОСТ и всем международным стандартам качества. DK-LOK провел тесты фитингов при криогенных температурах под контролем TUV с положительным результатом. Фитинги DK-LOK из нержавеющей стали сохраняют герметичность при температуре до -196°C.\r\n    </div>\r\n</div>\r\n<div class=\"container\">\r\n    <div class=\"prods-cards\">\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n    </div>\r\n</div>\r\n', 0, 'a:0:{}', 1, 'assets/base/chunks/pages/products.html'),
-(7, 1, 0, 'product_card', '', 0, 0, 0, '', 0, 'a:0:{}', 1, 'assets/base/chunks/elem/prod_card.html'),
+(4, 1, 0, 'head', '', 0, 0, 0, '<head>\r\n    <title>[[*pagetitle]]</title>\r\n    <meta name=\"description\" content=\"[[*description]]\"/>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <link rel=\"stylesheet\" href=\"/assets/resources/css/main.css\" type=\"text/css\">\r\n\r\n    <base href=\"[[!++site_url]]\" />\r\n\r\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap\" rel=\"stylesheet\">\r\n\r\n<!--    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">-->\r\n<!--    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>-->\r\n<!--    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap\" rel=\"stylesheet\">-->\r\n</head>', 0, 'a:0:{}', 1, 'assets/base/chunks/layout/head.html'),
+(5, 1, 0, 'main_page', '', 0, 0, 0, '<div class=\"main-banner\">\r\n    <div class=\"main-banner-arrow left\">\r\n        <img src=\"/assets/resources/img/elems/arrow.svg\" alt=\"arrow\">\r\n    </div>\r\n    <div class=\"main-banner-img\">\r\n        <div>\r\n            <div>Заголовок</div>\r\n            <div>Текстовое описание чего-то там чего-то там да да да д ад ад ад</div>\r\n        </div>\r\n        <img alt=\"banner\" src=\"/assets/resources/img/main-banner.jpg\">\r\n    </div>\r\n    <div class=\"main-banner-arrow right\">\r\n        <img src=\"/assets/resources/img/elems/arrow.svg\" alt=\"arrow\">\r\n    </div>\r\n</div>\r\n\r\n[[main_product]]\r\n\r\n<div class=\"container main-about\">\r\n    <div class=\"main-about-text\">\r\n        <div class=\"main-about-head\">О компании</div>\r\n        <div>DK-Lok ускоряет свой рост за счёт использования передовых мировых технологий в различных аспектах, включая конфиденциальность, долговечность, коррозионную стойкость и совместимость, в соответствии со сдвигом парадигмы в энергетическом секторе.</div>\r\n    </div>\r\n    <div class=\"main-about-head\">Сферы применения</div>\r\n    <div class=\"main-about-icons\">\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>нефтегазовая промышленность</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>нефтехимическая промышленность</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>судостроение</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>медицина</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>автомобильная промышленность</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>аналитическое оборудование</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>микроэлектроника</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>фармацевтика</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>энергетика</div>\r\n        </div>\r\n        <div class=\"main-about-icons-item\">\r\n            <img src=\"/assets/resources/img/iconsMainPage/neft.svg\" alt=\"icon\">\r\n            <div>пищевая промышленность</div>\r\n        </div>\r\n    </div>\r\n</div>', 0, 'a:0:{}', 1, 'assets/base/chunks/pages/main.html'),
+(6, 1, 0, 'products_page', '', 0, 0, 0, '<div class=\"breadcrumbs\">\r\n    [[!breadcrumbs? &id = [[*id]]]]\r\n</div>\r\n<div class=\"container prods-info\">\r\n    <div>Фитинги</div>\r\n    <div>\r\n        Вся продукция DK-LOK имеет необходимые сертификаты качества и полностью соответствует Техническим регламентам Таможенного союза, ГОСТ и всем международным стандартам качества. DK-LOK провел тесты фитингов при криогенных температурах под контролем TUV с положительным результатом. Фитинги DK-LOK из нержавеющей стали сохраняют герметичность при температуре до -196°C.\r\n    </div>\r\n</div>\r\n<div class=\"prods\">\r\n    <div class=\"prods-cards\">\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n        [[$product_card]]\r\n    </div>\r\n</div>\r\n', 0, 'a:0:{}', 1, 'assets/base/chunks/pages/products.html'),
+(7, 1, 0, 'product_card', '', 0, 0, 0, '<div class=\"prods-cards-item\">\r\n    <div>\r\n        <img alt=\"prod\" src=\"/assets/resources/img/prod/prod-fit.png\">\r\n    </div>\r\n    <div>обжимные фитинги</div>\r\n</div>', 0, 'a:0:{}', 1, 'assets/base/chunks/elem/product_card.html'),
 (8, 1, 0, '404', '', 0, 0, 0, '<div class=\"page-not-found container\">\r\n    <div>404 Страница не найдена</div>\r\n    <div>Страница устарела, была удалена или не существовала вовсе</div>\r\n    <div class=\"btn-container\">\r\n        <a href=\"/\" class=\"btn\">Перейти на главную</a>\r\n    </div>\r\n</div>', 0, 'a:0:{}', 1, 'assets/base/chunks/pages/404.html'),
-(9, 1, 0, 'product_page', '', 0, 0, 0, '\r\n<div class=\"container prod\">\r\n    [[$breadcrumbs]]\r\n    <div class=\"prod-header\">DU - проходная муфта</div>\r\n    <div class=\"prod-info\">\r\n        <div class=\"prod-info-img\">\r\n            <img src=\"/assets/resources/img/prod/prod-fit.png\" alt=\"prod\">\r\n        </div>\r\n        <div  class=\"prod-info-text\">\r\n            <div>Для того, чтобы сделать заказ</div>\r\n            <div>\r\n                <a>Заказать</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"prod-table\">\r\n        <table>\r\n            <thead>\r\n                <tr>\r\n                    <th>Кодировка</th>\r\n                    <th>Мин. раб. температура</th>\r\n                    <th>Макс. раб. температура</th>\r\n                    <th>Торцовые соединения</th>\r\n                    <th>D дюйм</th>\r\n                    <th>D мм</th>\r\n                    <th>E мин.</th>\r\n                    <th>h дюйм</th>\r\n                    <th>h мм</th>\r\n                    <th>H дюйм</th>\r\n                    <th>H мм</th>\r\n                    <th>A</th>\r\n                    <th>B</th>\r\n                    <th>I1</th>\r\n                    <th>L</th>\r\n                    <th>Материал</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr>\r\n                    <td>DU-2-SA</td>\r\n                    <td>-196</td>\r\n                    <td>696</td>\r\n                    <td>Обжимное соединение под трубку с наружным</td>\r\n                    <td>1/16</td>\r\n                    <td>1.59</td>\r\n                    <td>1.27</td>\r\n                    <td>5/16</td>\r\n                    <td>7.93</td>\r\n                    <td>5/16</td>\r\n                    <td>7.93</td>\r\n                    <td>8.63</td>\r\n                    <td>10.92</td>\r\n                    <td>17.50</td>\r\n                    <td>25.15</td>\r\n                    <td>Материал</td>\r\n                </tr>\r\n                <tr>\r\n                    <td>DU-2-SA</td>\r\n                    <td>-196</td>\r\n                    <td>696</td>\r\n                    <td>диаметром 1/16\"</td>\r\n                    <td>1/16</td>\r\n                    <td>1.59</td>\r\n                    <td>1.27</td>\r\n                    <td>5/16</td>\r\n                    <td>7.93</td>\r\n                    <td>5/16</td>\r\n                    <td>7.93</td>\r\n                    <td>8.63</td>\r\n                    <td>10.92</td>\r\n                    <td>17.50</td>\r\n                    <td>25.15</td>\r\n                    <td>Материал</td>\r\n                </tr>\r\n            </tbody>\r\n\r\n        </table>\r\n    </div>\r\n</div>', 0, 'a:0:{}', 1, 'assets/base/chunks/pages/product.html'),
-(10, 1, 0, 'breadcrumbs', '', 0, 0, 0, '', 0, 'a:0:{}', 1, 'assets/base/chunks/layout/breadcrumbs.html');
+(9, 1, 0, 'product_page', '', 0, 0, 0, '\r\n<div class=\"container prod\">\r\n    <div class=\"breadcrumbs\">\r\n        [[!breadcrumbs? &id = [[*id]]]]\r\n    </div>\r\n    <div class=\"prod-header\">DU - проходная муфта</div>\r\n    <div class=\"prod-info\">\r\n        <div class=\"prod-info-img\">\r\n            <img src=\"/assets/resources/img/prod/prod-fit.png\" alt=\"prod\">\r\n        </div>\r\n        <div  class=\"prod-info-text\">\r\n            <div>Для того, чтобы сделать заказ</div>\r\n            <div>\r\n                <a class=\"btn\">Заказать</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"prod-table\">\r\n\r\n        <table class=\"table\">\r\n            <thead>\r\n                <tr class=\"table-head\">\r\n                    <th>Кодировка</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody class=\"product-list head\">\r\n            <tr>\r\n                <td>DU-2-SA</td>\r\n            </tr>\r\n            <tr>\r\n                <td>DU-2-SA</td>\r\n            </tr>\r\n            </tbody>\r\n        </table>\r\n        <div>\r\n            <table class=\"table\">\r\n                <thead>\r\n                <tr class=\"table-head\">\r\n                    <th>Мин. раб. температура</th>\r\n                    <th>Макс. раб. температура</th>\r\n                    <th>Торцовые соединения</th>\r\n                    <th>D дюйм</th>\r\n                    <th>D мм</th>\r\n                    <th>E мин.</th>\r\n                    <th>h дюйм</th>\r\n                    <th>h мм</th>\r\n                    <th>H дюйм</th>\r\n                    <th>H мм</th>\r\n                    <th>A</th>\r\n                    <th>B</th>\r\n                    <th>I1</th>\r\n                    <th>L</th>\r\n                    <th>Материал</th>\r\n                </tr>\r\n                </thead>\r\n                <tbody class=\"product-list body\">\r\n                <tr>\r\n                    <td>-196</td>\r\n                    <td>696</td>\r\n                    <td>Обжимное соединение под трубку с наружным</td>\r\n                    <td>1/16</td>\r\n                    <td>1.59</td>\r\n                    <td>1.27</td>\r\n                    <td>5/16</td>\r\n                    <td>7.93</td>\r\n                    <td>5/16</td>\r\n                    <td>7.93</td>\r\n                    <td>8.63</td>\r\n                    <td>10.92</td>\r\n                    <td>17.50</td>\r\n                    <td>25.15</td>\r\n                    <td>Материал</td>\r\n                </tr>\r\n                <tr>\r\n                    <td>-196</td>\r\n                    <td>696</td>\r\n                    <td>диаметром 1/16\"</td>\r\n                    <td>1/16</td>\r\n                    <td>1.59</td>\r\n                    <td>1.27</td>\r\n                    <td>5/16</td>\r\n                    <td>7.93</td>\r\n                    <td>5/16</td>\r\n                    <td>7.93</td>\r\n                    <td>8.63</td>\r\n                    <td>10.92</td>\r\n                    <td>17.50</td>\r\n                    <td>25.15</td>\r\n                    <td>Материал</td>\r\n                </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n\r\n\r\n\r\n    </div>\r\n</div>', 0, 'a:0:{}', 1, 'assets/base/chunks/pages/product.html'),
+(10, 1, 0, 'breadcrumbs', '', 0, 0, 0, '', 0, 'a:0:{}', 1, 'assets/base/chunks/layout/breadcrumbs.html'),
+(11, 1, 0, 'main_product', '', 0, 0, 0, '<div class=\"main-prod\">\r\n    <div class=\"main-prod-info\">\r\n        <div><a href=\"[[+prod_uri]]\">[[+prod_longtitle]]</a></div>\r\n        <div>Испытайте превосходное качество продукции прямо сейчас</div>\r\n        <div>\r\n            <a>Semiconductor</a>\r\n        </div>\r\n    </div>\r\n    <div class=\"main-prod-grid\">\r\n<!--        // TODO alias-->\r\n        <a href=\"/product\" class=\"main-prod-grid-card\">\r\n            <div class=\"main-prod-grid-card-img\">\r\n                <img src=\"/assets/resources/img/prod/prod-fit.png\" alt=\"prod\">\r\n            </div>\r\n            <div>Фитинги</div>\r\n        </a>\r\n        <a href=\"/product\" class=\"main-prod-grid-card\">\r\n            <div class=\"main-prod-grid-card-img\">\r\n                <img src=\"/assets/resources/img/prod/prod-fit.png\" alt=\"prod\">\r\n            </div>\r\n            <div>Клапаны</div>\r\n        </a>\r\n        <a href=\"/product\" class=\"main-prod-grid-card\">\r\n            <div class=\"main-prod-grid-card-img\">\r\n                <img src=\"/assets/resources/img/prod/prod-fit.png\" alt=\"prod\">\r\n            </div>\r\n            <div>Регуляторы давления</div>\r\n        </a>\r\n        <a href=\"/product\" class=\"main-prod-grid-card\">\r\n            <div class=\"main-prod-grid-card-img\">\r\n                <img src=\"/assets/resources/img/prod/prod-truby.jpg\" alt=\"prod\">\r\n            </div>\r\n            <div>Трубы</div>\r\n        </a>\r\n    </div>\r\n</div>', 0, 'a:0:{}', 1, 'assets/base/chunks/elem/main_product.html');
 
 -- --------------------------------------------------------
 
@@ -1545,6 +1596,14 @@ CREATE TABLE `modx_site_snippets` (
   `static` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   `static_file` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `modx_site_snippets`
+--
+
+INSERT INTO `modx_site_snippets` (`id`, `source`, `property_preprocess`, `name`, `description`, `editor_type`, `category`, `cache_type`, `snippet`, `locked`, `properties`, `moduleguid`, `static`, `static_file`) VALUES
+(1, 1, 0, 'breadcrumbs', '', 0, 0, 0, '//$currentId = $scriptProperties[\'id\'];\n//$pathArray = [];\n//// var_dump($currentId);\n//// die;\n//while ($currentId !== 0) {\n//    $sql = \"SELECT parent, pagetitle, uri FROM modx_site_content WHERE id = :id\";\n//    $stmt = $modx->prepare($sql);\n//\n//    $stmt->execute([\"id\" => $currentId]);\n//    $resultArr = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];\n//    // var_dump($pathArray);\n//    // die;\n//    $currentId = $resultArr[\"parent\"];\n//    array_unshift($pathArray, [$resultArr[\"pagetitle\"], $resultArr[\"uri\"]]);\n//}\n//foreach ($pathArray as $path) {\n//\n//    if ($path === end($pathArray)) {\n//        echo $modx->getChunk(\'breadcrumbs\', [\'crumb\' => $path[0], \'link\' => $path[1]]);\n//        break;\n//    }\n//    echo $modx->getChunk(\'breadcrumbs\', [\'crumb\' => $path[0], \'link\' => $path[1]]);\n//    echo \'<span class=\"breadcrumbs-arrow\"><img src=\"/assets/resources/img/case_arr.svg\" alt=\"\"></span>\';\n//}', 0, 'a:0:{}', '', 1, 'assets/base/snippets/breadcrumbs.php'),
+(2, 1, 0, 'main_product', '', 0, 0, 0, '$query = $modx->newQuery(\'modResource\');\r\n$query->where(array(\r\n    \'id\' => 2,\r\n\r\n));\r\n\r\n\r\n\r\n$properties = $modx->getCollection(\'modResource\', $query);\r\n\r\n\r\nforeach ($properties as $propertie) {\r\n    echo $modx->getChunk(\'main_product\',\r\n        [\r\n            \'prod_uri\' => $propertie->get(\'uri\'),\r\n            \'prod_longtitle\' => $propertie->get(\'longtitle\'),\r\n        ]\r\n    );\r\n\r\n\r\n\r\n}', 0, 'a:0:{}', '', 1, 'assets/base/snippets/main_product.php');
 
 -- --------------------------------------------------------
 
@@ -1908,7 +1967,7 @@ INSERT INTO `modx_system_settings` (`key`, `value`, `xtype`, `namespace`, `area`
 ('compress_css', '1', 'combo-boolean', 'core', 'manager', NULL),
 ('compress_js', '1', 'combo-boolean', 'core', 'manager', NULL),
 ('confirm_navigation', '1', 'combo-boolean', 'core', 'manager', NULL),
-('container_suffix', '/', 'textfield', 'core', 'furls', NULL),
+('container_suffix', '/', 'textfield', 'core', 'furls', '2024-05-14 11:35:04'),
 ('context_tree_sort', '1', 'combo-boolean', 'core', 'manager', NULL),
 ('context_tree_sortby', 'rank', 'textfield', 'core', 'manager', NULL),
 ('context_tree_sortdir', 'ASC', 'textfield', 'core', 'manager', NULL),
@@ -1929,7 +1988,7 @@ INSERT INTO `modx_system_settings` (`key`, `value`, `xtype`, `namespace`, `area`
 ('enable_template_picker_in_tree', '1', 'combo-boolean', 'core', 'manager', NULL),
 ('error_log_filename', 'error.log', 'textfield', 'core', 'system', NULL),
 ('error_log_filepath', '', 'textfield', 'core', 'system', NULL),
-('error_page', '1', 'numberfield', 'core', 'site', NULL),
+('error_page', '3', 'numberfield', 'core', 'site', '2024-05-14 11:18:27'),
 ('failed_login_attempts', '5', 'numberfield', 'core', 'authentication', NULL),
 ('feed_modx_news', 'https://feeds.feedburner.com/modx-announce', 'textfield', 'core', 'system', NULL),
 ('feed_modx_news_enabled', '1', 'combo-boolean', 'core', 'system', NULL),
@@ -1949,8 +2008,8 @@ INSERT INTO `modx_system_settings` (`key`, `value`, `xtype`, `namespace`, `area`
 ('friendly_alias_trim_chars', '/.-_', 'textfield', 'core', 'furls', NULL),
 ('friendly_alias_word_delimiter', '-', 'textfield', 'core', 'furls', NULL),
 ('friendly_alias_word_delimiters', '-_', 'textfield', 'core', 'furls', NULL),
-('friendly_urls', '', 'combo-boolean', 'core', 'furls', NULL),
-('friendly_urls_strict', '', 'combo-boolean', 'core', 'furls', NULL),
+('friendly_urls', '1', 'combo-boolean', 'core', 'furls', '2024-05-14 11:11:45'),
+('friendly_urls_strict', '1', 'combo-boolean', 'core', 'furls', '2024-05-14 11:38:04'),
 ('global_duplicate_uri_check', '', 'combo-boolean', 'core', 'furls', NULL),
 ('hidemenu_default', '', 'combo-boolean', 'core', 'site', NULL),
 ('inline_help', '1', 'combo-boolean', 'core', 'manager', NULL),
@@ -3075,13 +3134,13 @@ ALTER TABLE `modx_dashboard_widget`
 -- AUTO_INCREMENT для таблицы `modx_deprecated_call`
 --
 ALTER TABLE `modx_deprecated_call`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `modx_deprecated_method`
 --
 ALTER TABLE `modx_deprecated_method`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `modx_documentgroup_names`
@@ -3123,7 +3182,7 @@ ALTER TABLE `modx_lexicon_entries`
 -- AUTO_INCREMENT для таблицы `modx_manager_log`
 --
 ALTER TABLE `modx_manager_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT для таблицы `modx_media_sources`
@@ -3171,7 +3230,7 @@ ALTER TABLE `modx_site_content`
 -- AUTO_INCREMENT для таблицы `modx_site_htmlsnippets`
 --
 ALTER TABLE `modx_site_htmlsnippets`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `modx_site_plugins`
@@ -3183,7 +3242,7 @@ ALTER TABLE `modx_site_plugins`
 -- AUTO_INCREMENT для таблицы `modx_site_snippets`
 --
 ALTER TABLE `modx_site_snippets`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `modx_site_templates`
