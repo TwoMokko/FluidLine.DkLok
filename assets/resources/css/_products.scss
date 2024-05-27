@@ -30,6 +30,7 @@
             &-item {
                 padding: GetParam($params, card_padding, 24px);
                 background-color: $colorBackgroundLight;
+                color: $colorTextDark;
                 cursor: pointer;
                 &:hover {
                     > div:last-child {
@@ -39,6 +40,10 @@
                 > div:first-child {
                     margin-bottom: GetParam($params, img_margin_bot, 24px);
                     height: GetParam($params, img_height, 200px);
+                }
+                > div:last-child {
+                    font-size: GetParam($params, card_font_size, null);
+                    line-height: GetParam($params, card_line_height, null);
                 }
                 img {
                     object-fit: cover;
@@ -64,7 +69,8 @@
             card_padding: 16px,
             img_height: 118px,
             img_margin_bot: 8px,
-
+            card_font_size: 12px,
+            card_line_height: 16px,
     )); }
     @include MixScreen($sizeXL, $size4XL) { @include Prods((
             cards_gap: 16px,
@@ -94,7 +100,7 @@
                 width: GetParam($params, prod_width, null);
                 height: GetParam($params, img_height, 450px);
                 > img {
-                    object-fit: contain;
+                    object-fit: cover;
                     width: 100%;
                     height: 100%;
                 }
@@ -121,7 +127,8 @@
         &-table {
             display: flex;
             > table {
-                width: max-content;
+                //width: max-content;
+                width: 100%;
             }
             > div {
                 overflow-x: auto;

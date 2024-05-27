@@ -578,6 +578,7 @@
   .prods-cards-item {
     padding: 16px;
     background-color: #FFF;
+    color: #000;
     cursor: pointer;
   }
   .prods-cards-item:hover > div:last-child {
@@ -586,6 +587,10 @@
   .prods-cards-item > div:first-child {
     margin-bottom: 8px;
     height: 118px;
+  }
+  .prods-cards-item > div:last-child {
+    font-size: 12px;
+    line-height: 16px;
   }
   .prods-cards-item img {
     object-fit: cover;
@@ -619,6 +624,7 @@
   .prods-cards-item {
     padding: 16px;
     background-color: #FFF;
+    color: #000;
     cursor: pointer;
   }
   .prods-cards-item:hover > div:last-child {
@@ -660,6 +666,7 @@
   .prods-cards-item {
     padding: 24px;
     background-color: #FFF;
+    color: #000;
     cursor: pointer;
   }
   .prods-cards-item:hover > div:last-child {
@@ -697,7 +704,7 @@
     height: 240px;
   }
   .prod-info-img > img {
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
     height: 100%;
   }
@@ -718,7 +725,7 @@
     display: flex;
   }
   .prod-table > table {
-    width: max-content;
+    width: 100%;
   }
   .prod-table > div {
     overflow-x: auto;
@@ -769,7 +776,7 @@
     height: 450px;
   }
   .prod-info-img > img {
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
     height: 100%;
   }
@@ -788,7 +795,7 @@
     display: flex;
   }
   .prod-table > table {
-    width: max-content;
+    width: 100%;
   }
   .prod-table > div {
     overflow-x: auto;
