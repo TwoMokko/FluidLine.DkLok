@@ -11,7 +11,7 @@
         &-img {
             position: relative;
             flex: auto;
-            height: GetParam($params, img_height, null);
+            height: GetParam($params, img_height, 525px);
             > div {
                 position: absolute;
                 height: 100%;
@@ -141,6 +141,11 @@
                         width: 100%;
                     }
                 }
+
+                > div:nth-child(2) {
+                    font-size: GetParam($params, card_font_size, null);
+                    line-height: GetParam($params, card_line_height, null);
+                }
             }
         }
     }
@@ -157,7 +162,9 @@
             card_grid_gap: 16px,
             padding_card_wrap: 16px 4%,
             padding_card: 8px,
-            img_margin_bot: 8px
+            img_margin_bot: 8px,
+            card_font_size: 16px,
+            card_line_height: 20px,
     )); }
     @include MixScreen($size2XL, $size5XL) { @include MainProd((
             width_text: 340px,

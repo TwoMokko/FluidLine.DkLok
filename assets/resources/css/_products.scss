@@ -8,14 +8,14 @@
         &-info {
             margin-bottom: GetParam($params, info_margin_bot, 84px);
             margin-top: GetParam($params, info_margin_top, 48px);
-            > div:first-child {
+            &-head {
                 font-size: GetParam($params, head_font_size, 40px);
                 line-height: GetParam($params, head_line_height, 52px);
                 font-weight: 500;
                 margin-bottom: GetParam($params, head_margin_bot, 30px);
                 color: $colorTextAccent;
             }
-            > div:last-child {
+            &-text {
                 font-size: GetParam($params, text_font_size, null);
                 line-height: GetParam($params, text_line_height, null);
             }
@@ -46,7 +46,7 @@
                     line-height: GetParam($params, card_line_height, null);
                 }
                 img {
-                    object-fit: cover;
+                    object-fit: contain;
                     width: 100%;
                     height: 100%;
                 }
@@ -100,28 +100,28 @@
                 width: GetParam($params, prod_width, null);
                 height: GetParam($params, img_height, 450px);
                 > img {
-                    object-fit: cover;
+                    object-fit: contain;
                     width: 100%;
                     height: 100%;
                 }
             }
             &-text {
                 width: GetParam($params, prod_width, null);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                padding-bottom: GetParam($params, text_pad_bot, null);
-                padding-top: GetParam($params, text_pad_top, 34px);
+                //display: flex;
+                //flex-direction: column;
+                //justify-content: space-between;
+                //padding-bottom: GetParam($params, text_pad_bot, null);
+                //padding-top: GetParam($params, text_pad_top, 34px);
                 > div:first-child {
                     text-align: GetParam($params, text_align, null);
                 }
-                > div:last-child {
-                    text-align: GetParam($params, text_align, end);
-                    padding-top: GetParam($params, btn_pad_top, null);
-                    > a {
-                        //@include btn_accent;
-                    }
-                }
+                //> div:last-child {
+                //    text-align: GetParam($params, text_align, end);
+                //    padding-top: GetParam($params, btn_pad_top, null);
+                //    > a {
+                //        //@include btn_accent;
+                //    }
+                //}
             }
         }
         &-table {
@@ -149,6 +149,7 @@
                     font-size: 14px;
                     line-height: 18px;
                     text-align: left;
+                    width: 25%;
                 }
                 td {
                     border-bottom: 1px solid $colorTextDark;

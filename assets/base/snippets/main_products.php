@@ -26,7 +26,7 @@
 $parent = 2;
 global $modx;
 
-$sql = "SELECT id, pagetitle, uri FROM modx_site_content WHERE parent = :parent LIMIT 4";
+$sql = "SELECT id, pagetitle, uri, introtext FROM modx_site_content WHERE parent = :parent ORDER BY `menuindex` LIMIT 4";
 $stmt = $modx->prepare($sql);
 
 $stmt->execute(['parent' => $parent]);
@@ -36,5 +36,6 @@ foreach ($directoryArr as $directory) {
         'pagetitle' => $directory['pagetitle'],
         'uri' => $directory['uri'],
         'id' => $directory['id'],
+        'introtext' => $directory['introtext'],
     ]);
 }

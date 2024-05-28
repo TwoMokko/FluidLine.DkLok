@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "variable" as *;
+
+.breadcrumbs {
+    margin: 20px 0;
+    a {
+        color: $colorTextDark;
+        opacity: 0.5;
+        font-size: 12px;
+    }
+    > span > img {
+        width: 12px;
+        height: 12px;
+        margin: 0 8px;
+    }
+}
