@@ -136,7 +136,7 @@
                     height: GetParam($params, height_img, 262px);
                     margin-bottom: GetParam($params, img_margin_bot, 24px);
                     > img {
-                        object-fit: cover;
+                        object-fit: contain;
                         height: 100%;
                         width: 100%;
                     }

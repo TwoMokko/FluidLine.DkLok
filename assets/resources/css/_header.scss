@@ -23,6 +23,11 @@
                 width: auto;
             }
         }
+        &-links {
+            display: flex;
+            flex-direction: GetParam($params, contacts_flex_dir, null);
+            gap: GetParam($params, contacts_gap, 40px);
+        }
         &-contacts {
             display: flex;
             flex-direction: GetParam($params, contacts_flex_dir, null);

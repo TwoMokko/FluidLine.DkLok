@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "none",
+    "target": "esnext",
+    "lib" : ["ESNext", "DOM", "es5", "es6", "dom", "dom.iterable"],
+    "rootDirs": ["./"],
+    "outFile": "../js/main.js",
+    "outDir": "../../js",
+    "declaration": true,
+    "sourceMap": true,
+    "alwaysStrict": true
+  },
+  "include": [
+    "**/*",
+    "../../../../../../Users/User/AppData/Roaming/JetBrains/PhpStorm2023.2/javascript/extLibs/global-types/node_modules/@types/jquery/misc.d.ts"
+  ],
+  "exclude": ["node_module"]
+}
