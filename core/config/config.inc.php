@@ -5,10 +5,10 @@
  */
 $database_type = "mysql";
 $database_server = "localhost";
-$database_user = "root";
-$database_password = "";
+$database_user = "modxlocal";
+$database_password = "modxlocal";
 $database_connection_charset = 'utf8mb4';
-$dbase = "fluidline_dklok";
+$dbase = "dklok";
 $table_prefix = 'modx_';
 $database_dsn = "$database_type:host=$database_server;dbname=$dbase;charset=utf8mb4";
 $config_options = array(
