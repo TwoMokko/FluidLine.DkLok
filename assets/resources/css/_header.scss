@@ -1,6 +1,19 @@
 @use "function" as *;
 @use "variable" as *;
 
+@keyframes showSearch {
+    0% { top: -66px; }
+    100% { top: 0; }
+}
+@keyframes hideSearch {
+    0% { top: 0; }
+    100% { top: -66px; }
+}
+
+header {
+    position: relative;
+}
+
 .header {
     @mixin Header($params: null) {
         display: flex;
@@ -8,6 +21,7 @@
         align-items: center;
         padding-top: 12px;
         padding-bottom: 12px;
+        height: 66px;
         a {
             padding: GetParam($params, a_padding, 6px 0);
             color: $colorTextDark;
@@ -27,6 +41,28 @@
             display: flex;
             flex-direction: GetParam($params, contacts_flex_dir, null);
             gap: GetParam($params, contacts_gap, 40px);
+        }
+        &-search-menu {
+            display: flex;
+            align-items: center;
+            //margin-right: GetParam($params, search_margin, 60px);
+            gap: 16px;
+            padding: 10px;
+            cursor: pointer;
+            &:hover {
+                color: $colorTextAccent;
+                > div:first-child {
+                    background-image: url("../img/searchHover.svg");
+                }
+            }
+            > div:first-child {
+                width: 20px;
+                height: 20px;
+                background-size: contain;
+                background-image: url("../img/search.svg");
+                background-repeat: no-repeat;
+            }
+            > div:last-child {}
         }
         &-contacts {
             display: flex;
@@ -48,4 +84,84 @@
     )); }
     @include MixScreen($size2XL) { @include Header(()); }
 
+}
+
+.header-search {
+    @mixin HeaderSearch($params: null) {
+        &-wrap {
+            font-size: 0.8rem;
+            font-weight: 400;
+            position: absolute;
+            z-index: 2;
+            background-color: white;
+            width: 100%;
+            top: -66px;
+            > div {
+                height: 66px;
+            }
+            &.active {
+                animation: showSearch 1s none;
+                top: 0;
+            }
+            &.not-active {
+                animation: hideSearch 1s none;
+                top: -66px;
+            }
+        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        div.search-input {
+            display: flex;
+            padding: 12px 24px;
+            flex: auto;
+            background-color: #F6F6F6;
+            div.search-icon {
+                flex: none;
+                width: 20px;
+                height: 20px;
+                background-size: contain;
+                background-image: url("../img/search.svg");
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+            div.search-text {
+                flex: auto;
+                padding: 0 1rem;
+                > input {
+                    background-color: transparent;
+                    border: none;
+                    width: 100%;
+                }
+            }
+            div.search-close {
+                flex: none;
+                width: 20px;
+                height: 20px;
+                background-size: contain;
+                background-image: url("../img/cleanInput.svg");
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+        }
+        div.search-hide {
+            cursor: pointer;
+            width: 40px;
+            height: 20px;
+            background-size: contain;
+            background-image: url("../img/arrowTop.svg");
+            background-repeat: no-repeat;
+            &:hover {
+                background-image: url("../img/arrowTopHover.svg");
+            }
+        }
+    }
+
+    @include MixScreen(null, $sizeL) { @include HeaderSearch(()); }
+    @include MixScreen($sizeL, $sizeX) { @include HeaderSearch(()); }
+    @include MixScreen($sizeX, $size3XL) { @include HeaderSearch(()); }
+    @include MixScreen($size3XL, $size5XL) { @include HeaderSearch(()); }
+    @include MixScreen($size5XL, $size6XL) { @include HeaderSearch(()); }
+    @include MixScreen($size6XL) { @include HeaderSearch(()); }
 }

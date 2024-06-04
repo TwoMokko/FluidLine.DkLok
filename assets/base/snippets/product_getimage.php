@@ -1,5 +1,4 @@
 <?php
-
 global $modx;
 $parent = $scriptProperties['parent'];
 $sql = "SELECT id, content FROM modx_site_content WHERE id = :parent LIMIT 1";

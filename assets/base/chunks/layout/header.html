@@ -1,13 +1,31 @@
-<header class="container header">
-    <a href="" class="header-logo">
-        <img alt="logo" src="/assets/resources/img/logo.svg">
-    </a>
-    <div class="header-links">
-        <a href="/products">Продукция</a>
-        <a href="/contacts">Контакты</a>
+<header class="header-wrap">
+    <div class="container header">
+        <a href="" class="header-logo">
+            <img alt="logo" src="/assets/resources/img/logo.svg">
+        </a>
+        <div class="header-links">
+            <a href="/products">Продукция</a>
+            <a href="/contacts">Контакты</a>
+        </div>
+        <div class="header-search-menu" onclick="showSearchInputOnHeader(this);" title="Открыть поле поиска">
+            <div></div>
+            <div>Поиск</div>
+        </div>
+        <div class="header-contacts">
+            <a href="tel:+70000000000">7 000 000 00 00</a>
+            <a href="mailto:mail@dklok.ru">mail@dklok.ru</a>
+        </div>
     </div>
-    <div class="header-contacts">
-        <a href="tel:+70000000000">7 000 000 00 00</a>
-        <a href="mailto:mail@dklok.ru">mail@dklok.ru</a>
+    <div class="container header-search-wrap">
+        <div class="header-search">
+            <div class="search-input">
+                <div class="search-icon" onclick="Common.Search.doSearch(document.querySelector('.search-text > input'))" title="Искать"></div>
+                <div class="search-text">
+                    <input placeholder="Поиск" type="text">
+                </div>
+                <div class="search-close" onclick="Common.Search.resetValue(document.querySelector('.search-text > input'))" title="Очистить поле"></div>
+            </div>
+            <div class="search-hide" onclick="showSearchInputOnHeader(this);" title="Скрыть поиск"></div>
+        </div>
     </div>
 </header>

@@ -196,7 +196,7 @@
         }
         &-icons {
             display: grid;
-            grid-template-columns: repeat(GetParam($params, grid_template, 7), 1fr);
+            grid-template-columns: repeat(GetParam($params, grid_template, 5), 1fr);
             grid-column-gap: GetParam($params, gap_col, null);
             grid-row-gap: GetParam($params, gap_row, 18px);
             &-item {

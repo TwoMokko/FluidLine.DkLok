@@ -62,3 +62,9 @@ a {
 .hide {
     display: none;
 }
+
+input, textarea {
+    &:focus-visible {
+        outline: none;
+    }
+}
