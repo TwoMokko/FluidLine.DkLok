@@ -45,10 +45,35 @@ class ElasticProcess
 
     public function elasticReloadProducts()
     {
-        $stmt = $this->modx->prepare($this->sql);
-        $stmt->execute();
-        $this->modxQueryProcess($stmt->fetchAll(PDO::FETCH_ASSOC));
-        $this->sendProductsToElastic();
+        $client = new Client();
+        $modx = new modX();
+        $arr = [];
+        $results = $modx->query($this->sql);
+        foreach ($results as $result) {
+            switch ($result['tmplvarid']) {
+                case "1":
+                    $arr[$result['contentid']]['price'] = [
+                        $result['value'],
+                    ];
+                    break;
+                case "2":
+                    $arr[$result['contentid']]['category'] = [
+                        $result['value'],
+                    ];
+                    break;
+                case "3":
+                    $arr[$result['contentid']]['link'] = [
+                        $result['value'],
+                    ];
+                    break;
+                case "4":
+                    $arr[$result['contentid']]['image'] = [
+                        $result['value'],
+                    ];
+                    break;
+            }
+            $this->products[$result['contentid']]['title'] = $result['pagetitle'];
+        }
     }
 
     private function modxQueryProcess(array $result): void
