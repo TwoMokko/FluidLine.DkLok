@@ -153,7 +153,7 @@ namespace Common {
             switch (this.pageContainerClass) {
                 case '.search-result-container':
                     this.catalogsContainer = createElement('div', 'search-catalogs-container', null, this.pageContainer);
-                    let catalogsHeader: HTMLDivElement = createElement('div', 'products-section-head', 'Каталоги', this.catalogsContainer);
+                    let catalogsHeader: HTMLDivElement = createElement('div', 'prods-info-head', 'Каталоги', this.catalogsContainer);
                     break;
                 case '.search-catalogs-container':
                     this.catalogsContainer = this.pageContainer;
@@ -165,7 +165,7 @@ namespace Common {
                     break;
             }
 
-            let catalogsCardsContainer: HTMLElement = createElement('div', 'search-catalogs-list container showFirst', '', this.catalogsContainer);
+            let catalogsCardsContainer: HTMLElement = createElement('div', 'search-catalogs-list showFirst', '', this.catalogsContainer);
 
             for (let catalog of this.data.catalogs) {
                 let itemCatalogsContainer: HTMLAnchorElement = createElement('div', 'products-catalogs-wrap', null, catalogsCardsContainer);
@@ -211,23 +211,25 @@ namespace Common {
         private initProducts(): void {
             if (this.pageContainerClass !== '.search-result-container') return;
             this.productsContainer = createElement('div', 'products-section', null, this.pageContainer);
-            let productsHeader = createElement('div', 'products-section-head', 'Продукция', this.productsContainer);
-            let productsCardsContainer = createElement('div', 'products-section-cards showFirstCards', null, this.productsContainer);
+            let productsHeader = createElement('div', 'prods-info-head', 'Продукция', this.productsContainer);
+            let productsCardsContainer = createElement('div', 'prods-cards', null, this.productsContainer);
+            // let productsCardsContainer = createElement('div', 'prods-cards showFirstCards', null, this.productsContainer);
 
 
             for (let product of this.data.products.content) {
                 let price = 'Цена: ' + product.price + ' руб.'
 
-                let itemProductContainer: HTMLDivElement = createElement('div', 'products-section-card', null, productsCardsContainer);
-                let imgWrapCatalog: HTMLDivElement = createElement('div', 'products-section-img', null, itemProductContainer);
-                let nameCatalog: HTMLDivElement = createElement('div', 'products-section-text', product.title, itemProductContainer);
-                let priceCatalog: HTMLDivElement = createElement('div', 'products-section-price', price, itemProductContainer);
-                let btnContainerCatalog: HTMLDivElement = createElement('div', 'products-section-btn', null, itemProductContainer);
-                let btnCatalog: HTMLAnchorElement = createElement('a', 'btn', 'Подробнее', btnContainerCatalog);
+                let itemProductContainer: HTMLAnchorElement = createElement('a', 'prods-cards-item', null, productsCardsContainer);
+                let imgWrapCatalog: HTMLDivElement = createElement('div', null, null, itemProductContainer);
+                let imgCatalog: HTMLDivElement = createElement('img', null, null, imgWrapCatalog);
+                let nameCatalog: HTMLDivElement = createElement('div', null, product.title, itemProductContainer);
+                let priceCatalog: HTMLDivElement = createElement('div', 'prods-cards-item-price', price, itemProductContainer);
+                // let btnContainerCatalog: HTMLDivElement = createElement('div', 'products-section-btn', null, itemProductContainer);
+                // let btnCatalog: HTMLAnchorElement = createElement('a', 'btn', 'Подробнее', btnContainerCatalog);
 
 
                 imgWrapCatalog.style.backgroundImage = `url(${product.image})`;
-                btnCatalog.href = product.alias;
+                itemProductContainer.href = product.alias;
             }
 
             this.productsContainer.style.marginBottom = '120px';

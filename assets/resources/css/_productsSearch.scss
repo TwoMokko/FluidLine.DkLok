@@ -1,0 +1,112 @@
+@use "function" as *;
+@use "variable" as *;
+
+.products {
+    @mixin Products($params: null) {
+        position: relative;
+        padding: 45px 60px;
+        //background-color: $colorLightGray;
+        &-head {
+            margin-bottom: 45px;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        &-cards {
+            display: grid;
+            grid-template-columns: repeat(GetParam($params, grid_col, 2), 1fr);
+            grid-column-gap: 30px;
+            grid-row-gap: 34px;
+            &.showFirstCards {
+                > a:nth-child(n + 7) {
+                    display: none;
+                }
+            }
+        }
+        &-card {
+            display: flex;
+            flex-direction: GetParam($params, display_card, null);
+            gap: 2rem;
+            padding: 24px;
+            height: max-content;
+            //background-color: $colorGray;
+            border-radius: 12px;
+            text-decoration: none;
+            color: $colorBlack;
+            cursor: pointer;
+            &:hover {
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+            }
+        }
+        &-img {
+            width: GetParam($params, img_width, 140px);
+            height: 100px;
+            background-color: $colorBackgroundLight;
+            background-size: cover;
+            //margin-right: 40px;
+        }
+        &-text-wrap {
+            width: 100%;
+            margin: auto;
+        }
+        &-text {
+            margin-bottom: 14px;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+        &-count {
+            color: $colorTextAccent;
+            font-weight: 500;
+        }
+        &-catalogs {
+            &-list {
+
+            }
+            &-wrap {
+                margin-bottom: 1.6rem;
+                &.back {
+                    background-color: white;
+                    padding: 2rem;
+                    border-radius: 12px;
+                }
+                .quote {
+
+                }
+            }
+            &-item {
+                text-decoration: none;
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                //margin-bottom: 1.6rem;
+                color: $colorBlack;
+                cursor: pointer;
+                &:hover {
+                    color: $colorTextAccent;
+                }
+                > div:first-child {
+                    //flex: none;
+                    height: 32px;
+                    width: 24px;
+                    background-image: url(../img/pdf_icon.svg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+                > div:last-child {
+                    //flex: auto;
+                    //margin: auto 1.5rem;
+                }
+            }
+        }
+    }
+    @include MixScreen(null, $sizeL) { @include Products((grid_col: 1, display_card: column, img_width: 100%)); }
+    @include MixScreen($sizeL, $size4XL) { @include Products((grid_col: 1)); }
+    @include MixScreen($size4XL) { @include Products(()); }
+}
+
+.showFirst {
+    > div:nth-child(n + 4) {
+        display: none;
+    }
+}

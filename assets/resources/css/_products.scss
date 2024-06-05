@@ -45,6 +45,11 @@
                     font-size: GetParam($params, card_font_size, null);
                     line-height: GetParam($params, card_line_height, null);
                 }
+                &-price {
+                    margin: 1.1rem 0;
+                    color: $colorTextAccent;
+                    font-weight: 500;
+                }
                 img {
                     object-fit: contain;
                     width: 100%;

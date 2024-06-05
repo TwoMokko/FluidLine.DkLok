@@ -1,0 +1,62 @@
+@use "function" as *;
+@use "variable" as *;
+
+.products-section {
+    @mixin ProductsSection($params: null) {
+        position: relative;
+        //margin-bottom: 80px;
+        //padding: 2.5rem 3.3rem 273px;
+        //background-color: $colorLightGray;
+        &-head {
+            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        &-cards {
+            display: grid;
+            grid-template-columns: repeat(GetParam($params, grid_col, 4), 1fr);
+            grid-column-gap: 1.6rem;
+            grid-row-gap: 5rem;
+            &.showFirstCards {
+                > div:nth-child(n + 5) {
+                    display: none;
+                }
+            }
+        }
+        &-card {
+            text-align: center;
+            //background-color: $colorGray;
+            border-radius: 1.3rem 1.3rem 0 0;
+        }
+        &-img {
+            width: 100%;
+            height: GetParam($params, img_height, 16rem);
+            background-color: $colorBackgroundLight;
+            background-size: cover;
+            border-radius: 1.3rem 1.3rem 0 0;
+        }
+        &-text {
+            padding: 1.3rem 0;
+        }
+        &-price {
+            margin-bottom: 1.1rem;
+            color: $colorTextAccent;
+            font-weight: 500;
+        }
+        &-btn {
+            position: relative;
+            bottom: -23px;
+            > a {
+                display: inline-block;
+                text-decoration: none;
+            }
+            > button, a {
+                padding: 14px 42px;
+            }
+        }
+    }
+
+    @include MixScreen(null, $sizeX) { @include ProductsSection((grid_col: 1, img_height: 14rem)); }
+    @include MixScreen($sizeX, $size4XL) { @include ProductsSection((grid_col: 2, img_height: 14rem)); }
+    @include MixScreen($size4XL) { @include ProductsSection(()); }
+}

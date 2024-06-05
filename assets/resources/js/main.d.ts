@@ -1,3 +1,9 @@
+declare function createElement(tagName: string, className: string | null, textContent: string | null, container: HTMLElement | null): any;
+declare function showSearchInputOnHeader(btn: HTMLElement): void;
+declare function doSearchOnInput(): void;
+declare function showBtnMoreProducts(cardContainer: HTMLElement, classContainer: string): void;
+declare function showMoreProducts(area: HTMLElement, classContainer: string, classCardContainer: string): void;
+declare function showBurger(open: boolean): void;
 type TypeResponseError = {
     state: 'error';
     body: {
@@ -82,8 +88,3 @@ declare namespace Common {
         private updatePage;
     }
 }
-declare function createElement(tagName: string, className: string | null, textContent: string | null, container: HTMLElement | null): any;
-declare function showSearchInputOnHeader(btn: HTMLElement): void;
-declare function doSearchOnInput(): void;
-declare function showMoreProducts(area: HTMLElement, classContainer: string, classCardContainer: string): void;
-declare function showBurger(open: boolean): void;

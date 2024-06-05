@@ -115,18 +115,18 @@ function doSearchOnInput(): void {
 //     }
 // }
 
-// function showBtnMoreProducts(cardContainer: HTMLElement, classContainer: string): void {
-//     const container: HTMLElement = document.querySelector(classContainer);
-//     if (cardContainer.children.length <= 4) {
-//         document.querySelector(classContainer).nextElementSibling.classList.add('hide');
-//         document.querySelector(classContainer).querySelector('.showAll').classList.add('hide');
-//         container.style.marginBottom = '120px';
-//     }
-//
-//     if (classContainer === '.products-section') {
-//         container.style.paddingBottom = '68px';
-//     }
-// }
+function showBtnMoreProducts(cardContainer: HTMLElement, classContainer: string): void {
+    const container: HTMLElement = document.querySelector(classContainer);
+    if (cardContainer.children.length <= 4) {
+        document.querySelector(classContainer).nextElementSibling.classList.add('hide');
+        document.querySelector(classContainer).querySelector('.showAll').classList.add('hide');
+        container.style.marginBottom = '120px';
+    }
+
+    if (classContainer === '.products-section') {
+        container.style.paddingBottom = '68px';
+    }
+}
 
 function showMoreProducts(area: HTMLElement, classContainer: string, classCardContainer: string): void {
     area.classList.add('hide');

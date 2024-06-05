@@ -1,0 +1,72 @@
+@use "function" as *;
+@use "variable" as *;
+
+div.switcher {
+    @mixin Switcher($params: null) {
+        display: flex;
+
+        font-weight: 400;
+        align-items: center;
+        &.search-catalogs {
+            width: 100%;
+            justify-content: center;
+            gap: 0.7rem;
+        }
+        &.pagination {
+            width: 100%;
+        }
+        &.mini {
+            width: max-content;
+        }
+        .switch {
+            display: GetParam($params, display_btn, null);
+            flex: none;
+            padding: 0.7rem;
+            border-radius: 8px;
+            cursor: pointer;
+            &:hover {
+                color: $colorTextAccent;
+            }
+            &.active {
+                background-color: green;
+            }
+            &.disabled {
+                cursor: default;
+                opacity: 0.5;
+                &:hover {
+                    color: $colorTextDark;
+                }
+            }
+        }
+        .number-wrap {
+            flex: auto;
+            display: flex;
+            gap: 0.7rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .number-page {
+            width: 2.2rem;
+            height: 2.2rem;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            &:hover {
+                color: $colorTextAccent;
+            }
+            &.active {
+                color: $colorTextAccent;
+            }
+            &.disabled {
+                cursor: default;
+                opacity: 0.5;
+                &:hover {
+                    color: $colorTextDark;
+                }
+            }
+        }
+    }
+    @include MixScreen(null, $sizeS) { @include Switcher((display_btn: none)); }
+    @include MixScreen($sizeS) { @include Switcher(()); }
+}
