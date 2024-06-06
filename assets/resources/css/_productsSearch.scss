@@ -65,13 +65,20 @@
             }
             &-wrap {
                 margin-bottom: 1.6rem;
+                //display: flex;
+                //flex-direction: column;
+                //gap: 24px;
+                padding: 24px;
+                border: 1px solid $colorBackgroundDark;
                 &.back {
                     background-color: white;
                     padding: 2rem;
                     border-radius: 12px;
                 }
                 .quote {
-
+                    &.active {
+                        padding: 16px 0 0 50px;;
+                    }
                 }
             }
             &-item {
@@ -94,6 +101,7 @@
                     background-repeat: no-repeat;
                 }
                 > div:last-child {
+                    font-size: 24px;
                     //flex: auto;
                     //margin: auto 1.5rem;
                 }

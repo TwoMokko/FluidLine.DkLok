@@ -50,3 +50,42 @@
         }
     }
 }
+
+.search-field {
+    margin-top: 60px;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid $colorBackgroundDark;
+    &:focus-visible {
+        border-color: $colorBackgroundAccent;
+    }
+}
+.input-result-notfound {
+    color: $colorTextAccent;
+    margin-top: 24px;
+}
+
+.loader{
+    display: block;
+    position: relative;
+    height: 32px;
+    border: 2px solid $colorBackgroundLight;
+    width: 120px;
+    background: $colorBackgroundLight;
+    box-sizing: border-box;
+    &:before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 28px;
+        height: 28px;
+        background: $colorBackgroundAccent;
+        animation: ballbns 1s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes ballbns {
+    0% {  left: 0; transform: translateX(0%); }
+    100% {  left: 100%; transform: translateX(-100%); }
+}

@@ -115,44 +115,44 @@ function doSearchOnInput(): void {
 //     }
 // }
 
-function showBtnMoreProducts(cardContainer: HTMLElement, classContainer: string): void {
-    const container: HTMLElement = document.querySelector(classContainer);
-    if (cardContainer.children.length <= 4) {
-        document.querySelector(classContainer).nextElementSibling.classList.add('hide');
-        document.querySelector(classContainer).querySelector('.showAll').classList.add('hide');
-        container.style.marginBottom = '120px';
-    }
+// function showBtnMoreProducts(cardContainer: HTMLElement, classContainer: string): void {
+//     const container: HTMLElement = document.querySelector(classContainer);
+//     if (cardContainer.children.length <= 4) {
+//         container.nextElementSibling.classList.add('hide');
+//         container.querySelector('.showAll').classList.add('hide');
+//         container.style.marginBottom = '120px';
+//     }
+//
+//     if (classContainer === '.products-section') {
+//         container.style.paddingBottom = '68px';
+//     }
+// }
 
-    if (classContainer === '.products-section') {
-        container.style.paddingBottom = '68px';
-    }
-}
+// function showMoreProducts(area: HTMLElement, classContainer: string, classCardContainer: string): void {
+//     area.classList.add('hide');
+//     const container: HTMLElement = document.querySelector(classContainer);
+//     switch (area.closest('.products-more').className) {
+//         case 'products-more showAll hide':
+//             if (classContainer === '.products-section') container.style.paddingBottom = '153px';
+//             area.closest(classContainer).nextElementSibling.classList.remove('hide');
+//             break;
+//         case 'products-more hideAll hide':
+//             if (classContainer === '.products-section') container.style.paddingBottom = '273px';
+//             document.querySelector(classContainer).querySelector('.showAll').classList.remove('hide');
+//             break;
+//     }
+//
+//     const cardContainer: HTMLElement = document.querySelector(classCardContainer);
+//     if (cardContainer.classList.contains('showFirstCards')) cardContainer.classList.remove('showFirstCards');
+//     else cardContainer.classList.add('showFirstCards');
+// }
 
-function showMoreProducts(area: HTMLElement, classContainer: string, classCardContainer: string): void {
-    area.classList.add('hide');
-    const container: HTMLElement = document.querySelector(classContainer);
-    switch (area.closest('.products-more').className) {
-        case 'products-more showAll hide':
-            if (classContainer === '.products-section') container.style.paddingBottom = '153px';
-            area.closest(classContainer).nextElementSibling.classList.remove('hide');
-            break;
-        case 'products-more hideAll hide':
-            if (classContainer === '.products-section') container.style.paddingBottom = '273px';
-            document.querySelector(classContainer).querySelector('.showAll').classList.remove('hide');
-            break;
-    }
-
-    const cardContainer: HTMLElement = document.querySelector(classCardContainer);
-    if (cardContainer.classList.contains('showFirstCards')) cardContainer.classList.remove('showFirstCards');
-    else cardContainer.classList.add('showFirstCards');
-}
-
-function showBurger(open: boolean): void {
-    if (!open) {
-        document.querySelector('.burger-menu-space').classList.remove('hide');
-        document.querySelector('body').style.overflow = 'hidden';
-        return;
-    }
-    document.querySelector('.burger-menu-space').classList.add('hide');
-    document.querySelector('body').style.overflow = 'revert';
-}
+// function showBurger(open: boolean): void {
+//     if (!open) {
+//         document.querySelector('.burger-menu-space').classList.remove('hide');
+//         document.querySelector('body').style.overflow = 'hidden';
+//         return;
+//     }
+//     document.querySelector('.burger-menu-space').classList.add('hide');
+//     document.querySelector('body').style.overflow = 'revert';
+// }

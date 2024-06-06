@@ -150,6 +150,7 @@ namespace Common {
         }
 
         private initCatalogs(): void {
+            new Common.SearchQuote();
             switch (this.pageContainerClass) {
                 case '.search-result-container':
                     this.catalogsContainer = createElement('div', 'search-catalogs-container', null, this.pageContainer);

@@ -1,9 +1,6 @@
 declare function createElement(tagName: string, className: string | null, textContent: string | null, container: HTMLElement | null): any;
 declare function showSearchInputOnHeader(btn: HTMLElement): void;
 declare function doSearchOnInput(): void;
-declare function showBtnMoreProducts(cardContainer: HTMLElement, classContainer: string): void;
-declare function showMoreProducts(area: HTMLElement, classContainer: string, classCardContainer: string): void;
-declare function showBurger(open: boolean): void;
 type TypeResponseError = {
     state: 'error';
     body: {
@@ -86,5 +83,26 @@ declare namespace Common {
         private previousPage;
         private nextPage;
         private updatePage;
+    }
+}
+declare namespace Common {
+    class SearchQuote {
+        private data;
+        private currentPage;
+        private searchValue;
+        private searchField;
+        private textWithQuote;
+        constructor();
+        private getData;
+        private setSearchValue;
+        private onChangeSearchValue;
+        private createNotFound;
+        private createSearchList;
+        private addNameAccentCatalog;
+        private addNameAccentText;
+        private testCreateElem;
+        private getPositionBefore;
+        private getPositionAfter;
+        private updateActiveForBlockquote;
     }
 }

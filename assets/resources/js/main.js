@@ -108,47 +108,45 @@ function doSearchOnInput() {
 //         productOther.style.display = 'none';
 //     }
 // }
-function showBtnMoreProducts(cardContainer, classContainer) {
-    const container = document.querySelector(classContainer);
-    if (cardContainer.children.length <= 4) {
-        document.querySelector(classContainer).nextElementSibling.classList.add('hide');
-        document.querySelector(classContainer).querySelector('.showAll').classList.add('hide');
-        container.style.marginBottom = '120px';
-    }
-    if (classContainer === '.products-section') {
-        container.style.paddingBottom = '68px';
-    }
-}
-function showMoreProducts(area, classContainer, classCardContainer) {
-    area.classList.add('hide');
-    const container = document.querySelector(classContainer);
-    switch (area.closest('.products-more').className) {
-        case 'products-more showAll hide':
-            if (classContainer === '.products-section')
-                container.style.paddingBottom = '153px';
-            area.closest(classContainer).nextElementSibling.classList.remove('hide');
-            break;
-        case 'products-more hideAll hide':
-            if (classContainer === '.products-section')
-                container.style.paddingBottom = '273px';
-            document.querySelector(classContainer).querySelector('.showAll').classList.remove('hide');
-            break;
-    }
-    const cardContainer = document.querySelector(classCardContainer);
-    if (cardContainer.classList.contains('showFirstCards'))
-        cardContainer.classList.remove('showFirstCards');
-    else
-        cardContainer.classList.add('showFirstCards');
-}
-function showBurger(open) {
-    if (!open) {
-        document.querySelector('.burger-menu-space').classList.remove('hide');
-        document.querySelector('body').style.overflow = 'hidden';
-        return;
-    }
-    document.querySelector('.burger-menu-space').classList.add('hide');
-    document.querySelector('body').style.overflow = 'revert';
-}
+// function showBtnMoreProducts(cardContainer: HTMLElement, classContainer: string): void {
+//     const container: HTMLElement = document.querySelector(classContainer);
+//     if (cardContainer.children.length <= 4) {
+//         container.nextElementSibling.classList.add('hide');
+//         container.querySelector('.showAll').classList.add('hide');
+//         container.style.marginBottom = '120px';
+//     }
+//
+//     if (classContainer === '.products-section') {
+//         container.style.paddingBottom = '68px';
+//     }
+// }
+// function showMoreProducts(area: HTMLElement, classContainer: string, classCardContainer: string): void {
+//     area.classList.add('hide');
+//     const container: HTMLElement = document.querySelector(classContainer);
+//     switch (area.closest('.products-more').className) {
+//         case 'products-more showAll hide':
+//             if (classContainer === '.products-section') container.style.paddingBottom = '153px';
+//             area.closest(classContainer).nextElementSibling.classList.remove('hide');
+//             break;
+//         case 'products-more hideAll hide':
+//             if (classContainer === '.products-section') container.style.paddingBottom = '273px';
+//             document.querySelector(classContainer).querySelector('.showAll').classList.remove('hide');
+//             break;
+//     }
+//
+//     const cardContainer: HTMLElement = document.querySelector(classCardContainer);
+//     if (cardContainer.classList.contains('showFirstCards')) cardContainer.classList.remove('showFirstCards');
+//     else cardContainer.classList.add('showFirstCards');
+// }
+// function showBurger(open: boolean): void {
+//     if (!open) {
+//         document.querySelector('.burger-menu-space').classList.remove('hide');
+//         document.querySelector('body').style.overflow = 'hidden';
+//         return;
+//     }
+//     document.querySelector('.burger-menu-space').classList.add('hide');
+//     document.querySelector('body').style.overflow = 'revert';
+// }
 var Common;
 (function (Common) {
     class Request {
@@ -373,6 +371,7 @@ var Common;
             this.notFound = createElement('div', 'search-not-found', 'По вашему запросу ничего не найдено', this.pageContainer);
         }
         initCatalogs() {
+            new Common.SearchQuote();
             switch (this.pageContainerClass) {
                 case '.search-result-container':
                     this.catalogsContainer = createElement('div', 'search-catalogs-container', null, this.pageContainer);
@@ -530,5 +529,135 @@ var Common;
         }
     }
     Common.Search = Search;
+})(Common || (Common = {}));
+var Common;
+(function (Common) {
+    class SearchQuote {
+        data;
+        currentPage;
+        searchValue;
+        searchField;
+        textWithQuote;
+        constructor() {
+            this.testCreateElem();
+            this.searchField.addEventListener('change', () => { this.onChangeSearchValue(); });
+        }
+        getData() {
+            fetch(`/api/search?page=${this.currentPage}&search=${this.searchValue}`)
+                .then(async (response) => {
+                this.data = await response.json();
+            })
+                .catch(response => { console.log('request failed'); console.log('resp search', response); });
+        }
+        setSearchValue() {
+            this.searchValue = this.searchField.value;
+        }
+        onChangeSearchValue() {
+            console.log(this.searchField.value);
+            this.setSearchValue();
+            // this.getData();
+            this.addNameAccentCatalog();
+        }
+        createNotFound() {
+        }
+        createSearchList() {
+        }
+        addNameAccentCatalog() {
+            const regExp = new RegExp(this.searchValue, 'gi');
+            const namesArray = document.querySelectorAll('.search-catalogs-list > div > a > div:last-child');
+            namesArray.forEach((elem) => {
+                let str = elem.textContent;
+                elem.innerHTML = str.replace(regExp, () => {
+                    return `<strong style="background: rgba(224, 30, 37, 0.3)">${this.searchValue}</strong>`;
+                });
+                // if (str.match(regExp)) {
+                //     elem.innerHTML = str.replace(regExp, () => {
+                //         return `<strong style="background: rgba(102, 182, 69, 0.3)">${this.searchValue}</strong>`;
+                //     });
+                // }
+                this.addNameAccentText(regExp, elem);
+            });
+            // this.addNameAccentText(regExp);
+        }
+        addNameAccentText(regExp, elem) {
+            let textQuote = '';
+            fetch('assets/resources/documents/DSS18T.pdf' + '.txt')
+                .then(response => response.text())
+                .then(text => {
+                let notfound = document.querySelector('.input-result-notfound');
+                notfound.classList.add('hide');
+                let textWithQuote = elem.closest('a').closest('div').querySelector('.quote');
+                if (this.searchValue === '') {
+                    textWithQuote.innerHTML = '';
+                    return;
+                }
+                let reg = new RegExp(/[^a-z\dа-яё., /?!№;:()*\-+\\"'%=\n]/gi);
+                text = text.replace(reg, '');
+                text = text.replace(/ {2,}/ig, ' ');
+                text = text.replace(/\n{2,}/ig, '\n');
+                text = text.replace(/(\n +\n)+/ig, ' ');
+                // text = text.replace(/ /ig, '*');
+                // text = text.replace(/\n/ig, '+');
+                let result = text.match(this.searchValue);
+                if (!result) {
+                    notfound.classList.remove('hide');
+                    textWithQuote.innerHTML = '';
+                    return;
+                }
+                let startQuote = result.index;
+                let endQuote = result.index + this.searchValue.length;
+                let startBeforeQuote = this.getPositionBefore(text, startQuote - 250, startQuote - 50);
+                let endAfterQuote = this.getPositionAfter(text, endQuote + 50, endQuote + 250);
+                let strBeforeQuote = text.slice(startBeforeQuote, startQuote);
+                let strAfterQuote = text.slice(endQuote, endAfterQuote);
+                textWithQuote.innerHTML = strBeforeQuote + `<strong style="background: rgba(224, 30, 37, 0.3)">${this.searchValue}</strong>` + strAfterQuote;
+            })
+                .then(() => { this.updateActiveForBlockquote(); })
+                .catch();
+        }
+        testCreateElem() {
+            this.searchField = createElement('input', 'search-field', null, document.querySelector('.search-result-container'));
+            createElement('div', 'input-result-notfound hide', 'нет совпадений', document.querySelector('.search-result-container'));
+            this.searchField.placeholder = 'поиск по каталогам';
+        }
+        getPositionBefore(text, start, end) {
+            /* Ищем первое совпадение в промежутке, а надо будет найти последнее совпадение в промежутке для текста после цитаты */
+            if (start <= 0)
+                return 0;
+            let separator = text.slice(start, end);
+            let separatorMatch = separator.match(/[.!?;]/);
+            if (separatorMatch !== null)
+                return start + separatorMatch.index + 1;
+            separatorMatch = separator.match(/[ \n]/);
+            if (separatorMatch !== null)
+                return start + separatorMatch.index + 1;
+            return start;
+        }
+        getPositionAfter(text, start, end) {
+            /* Ищем первое совпадение в промежутке, а надо будет найти последнее совпадение в промежутке для текста после цитаты */
+            if (end >= text.length)
+                return text.length;
+            let separator = text.slice(start, end);
+            let index1 = separator.lastIndexOf('.');
+            let index2 = separator.lastIndexOf('!');
+            let index3 = separator.lastIndexOf('?');
+            let index4 = separator.lastIndexOf(';');
+            let index = Math.max(index1, index2, index3, index4);
+            if (index < 0)
+                return separator.lastIndexOf(' ');
+            // separatorMatch = separator.match(/[ \n]/);
+            // if (separatorMatch !== null) return start + separatorMatch.index + 1;
+            return start + index + 1;
+        }
+        updateActiveForBlockquote() {
+            document.querySelectorAll('.quote').forEach(elem => {
+                if (elem.innerHTML === '')
+                    elem.classList.remove('active');
+                else
+                    elem.classList.add('active');
+            });
+        }
+    }
+    Common.SearchQuote = SearchQuote;
 })(Common || (Common = {}));
 //# sourceMappingURL=main.js.map

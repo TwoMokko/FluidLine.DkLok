@@ -21,13 +21,14 @@
             .text-wrap {
                 margin-bottom: 24px;
                 > textarea {
+                    padding: 12px;
                     width: 100%;
-                    height: 100%;
-                    border: 1px solid $colorBtnAccent;
+                    height: 120px;
+                    border: 1px solid $colorBackgroundDark;
                     resize: none;
                     &:focus {
                         outline: none;
-                        border-color: $colorBackgroundDark;
+                        border-color: $colorBtnAccent;
                         box-shadow: none;
                     }
                 }
@@ -38,11 +39,12 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 24px;
                 > input {
+                    padding: 12px;
                     width: 100%;
-                    border: 1px solid $colorBtnAccent;
+                    border: 1px solid $colorBackgroundDark;
                     &:focus {
                         outline: none;
-                        border-color: $colorBackgroundDark;
+                        border-color: $colorBtnAccent;
                         box-shadow: none;
                     }
                 }
