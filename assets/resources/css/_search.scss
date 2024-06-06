@@ -14,13 +14,17 @@
         }
         &-show {
             display: none;
-            text-align: center;
+            //text-align: center;
             width: 100%;
             cursor: pointer;
-            padding: 0.5rem 0;
-            &.active { display: inline-block; }
+            padding: 0.5rem 24px;
+            border-bottom: 1px solid black;
+            &.active {
+                display: inline;
+            }
             &:hover {
                 color: $colorTextAccent;
+                border-color: $colorTextAccent;
             }
         }
     }
@@ -55,7 +59,7 @@
     margin-top: 60px;
     padding: 12px;
     width: 100%;
-    border: 1px solid $colorBackgroundDark;
+    border: 1px solid #24242430;
     &:focus-visible {
         border-color: $colorBackgroundAccent;
     }
