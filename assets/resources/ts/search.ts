@@ -224,7 +224,7 @@ namespace Common {
 
                 let itemProductContainer: HTMLAnchorElement = createElement('a', 'prods-cards-item', null, productsCardsContainer);
                 let imgWrapCatalog: HTMLDivElement = createElement('div', null, null, itemProductContainer);
-                let imgCatalog: HTMLDivElement = createElement('img', null, null, imgWrapCatalog);
+                // let imgCatalog: HTMLDivElement = createElement('img', null, null, imgWrapCatalog);
                 let nameCatalog: HTMLDivElement = createElement('div', null, product.title, itemProductContainer);
                 let priceCatalog: HTMLDivElement = createElement('div', 'prods-cards-item-price', price, itemProductContainer);
                 // let btnContainerCatalog: HTMLDivElement = createElement('div', 'products-section-btn', null, itemProductContainer);

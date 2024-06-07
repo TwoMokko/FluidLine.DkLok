@@ -439,7 +439,7 @@ var Common;
                 let price = 'Цена: ' + product.price + ' руб.';
                 let itemProductContainer = createElement('a', 'prods-cards-item', null, productsCardsContainer);
                 let imgWrapCatalog = createElement('div', null, null, itemProductContainer);
-                let imgCatalog = createElement('img', null, null, imgWrapCatalog);
+                // let imgCatalog: HTMLDivElement = createElement('img', null, null, imgWrapCatalog);
                 let nameCatalog = createElement('div', null, product.title, itemProductContainer);
                 let priceCatalog = createElement('div', 'prods-cards-item-price', price, itemProductContainer);
                 // let btnContainerCatalog: HTMLDivElement = createElement('div', 'products-section-btn', null, itemProductContainer);
