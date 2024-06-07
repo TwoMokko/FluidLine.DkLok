@@ -54,14 +54,15 @@ namespace Common {
             this.createLoader(this.pageContainer);
 
             this.setSearchValue();
-            this.testRequest();
-            // this.initData();
+            // this.testRequest();
+            this.initData();
             // if (this.pageContainerClass === '.search-catalogs-container') new Common.SearchQuote();
 
         }
 
         public static doSearch(input: HTMLInputElement): void {
-            window.location.href = `/search?page=1&search=${input.value}`;
+            // window.location.href = `/result`;
+            window.location.href = `/result?page=1&search=${input.value}`;
         }
 
         public static resetValue(input: HTMLInputElement): void {
@@ -143,6 +144,7 @@ namespace Common {
         private createLoader(container: HTMLElement): void {
             let loaderWrap = createElement('div', 'loader-wrap', null, container);
             let loader = createElement('span', 'loader', null, loaderWrap);
+            let loaderText = createElement('div', 'loader-text', 'Загрузка...', loaderWrap);
         }
 
         private createNotFound(): void {

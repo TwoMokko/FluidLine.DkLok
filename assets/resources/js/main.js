@@ -26,14 +26,17 @@ function createElement(tagName, className, textContent, container) {
     return elem;
 }
 function showSearchInputOnHeader(btn) {
+    const input = document.querySelector('.search-text > input');
     console.log(btn);
     if (btn.closest('.header-wrap')) {
         document.querySelector('.header-search-wrap').classList.remove('not-active');
         document.querySelector('.header-search-wrap').classList.add('active');
+        input.focus();
     }
     if (btn.closest('.header-search-wrap')) {
         document.querySelector('.header-search-wrap').classList.remove('active');
         document.querySelector('.header-search-wrap').classList.add('not-active');
+        input.blur();
     }
 }
 function doSearchOnInput() {
@@ -287,12 +290,13 @@ var Common;
             this.pageContainer = document.querySelector(pageContainerClass);
             this.createLoader(this.pageContainer);
             this.setSearchValue();
-            this.testRequest();
-            // this.initData();
+            // this.testRequest();
+            this.initData();
             // if (this.pageContainerClass === '.search-catalogs-container') new Common.SearchQuote();
         }
         static doSearch(input) {
-            window.location.href = `/search?page=1&search=${input.value}`;
+            // window.location.href = `/result`;
+            window.location.href = `/result?page=1&search=${input.value}`;
         }
         static resetValue(input) {
             input.value = '';
@@ -366,6 +370,7 @@ var Common;
         createLoader(container) {
             let loaderWrap = createElement('div', 'loader-wrap', null, container);
             let loader = createElement('span', 'loader', null, loaderWrap);
+            let loaderText = createElement('div', 'loader-text', 'Загрузка...', loaderWrap);
         }
         createNotFound() {
             this.notFound = createElement('div', 'search-not-found', 'По вашему запросу ничего не найдено', this.pageContainer);

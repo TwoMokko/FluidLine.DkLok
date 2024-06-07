@@ -60,7 +60,7 @@ class ElasticLoader
 
     protected function elasticIndiciesValidation(): void
     {
-        if (!isset($this->indiciesList->wika_products)) {
+        if (!isset($this->indiciesList->dklok_products)) {
             $this
                 ->client
                 ->request(
@@ -70,7 +70,7 @@ class ElasticLoader
 
             $this->process->elasticReloadProducts();
         }
-        if (!isset($this->indiciesList->wika_files)) {
+        if (!isset($this->indiciesList->dklok_files)) {
             $this
                 ->client
                 ->request(
@@ -87,7 +87,7 @@ class ElasticLoader
             ->client
             ->request(
                 "GET",
-                "/wika_products/_search",
+                "/dklok_products/_search",
                 [
                     'headers' => $this->headers,
                 ]
@@ -131,7 +131,7 @@ class ElasticLoader
             ->client
             ->request(
                 "GET",
-                '/wika_products/_search',
+                '/dklok_products/_search',
                 [
                     'headers' => $this->headers,
                     'body' => $json,
@@ -163,7 +163,7 @@ class ElasticLoader
             ->client
             ->request(
                 "GET",
-                '/wika_files/_search',
+                '/dklok_files/_search',
                 [
                     'headers' => $this->headers,
                     'body' => $json,

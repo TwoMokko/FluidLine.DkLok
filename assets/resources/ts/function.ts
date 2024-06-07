@@ -24,15 +24,17 @@ function createElement(tagName: string, className: string|null, textContent: str
 }
 
 function showSearchInputOnHeader(btn: HTMLElement): void {
+    const input: HTMLInputElement = document.querySelector('.search-text > input');
     console.log(btn);
     if (btn.closest('.header-wrap')) {
         document.querySelector('.header-search-wrap').classList.remove('not-active');
         document.querySelector('.header-search-wrap').classList.add('active');
+        input.focus();
     }
     if (btn.closest('.header-search-wrap')) {
-
         document.querySelector('.header-search-wrap').classList.remove('active');
         document.querySelector('.header-search-wrap').classList.add('not-active');
+        input.blur();
     }
 }
 

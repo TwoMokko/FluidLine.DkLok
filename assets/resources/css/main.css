@@ -1549,11 +1549,22 @@ header {
   margin-top: 24px;
 }
 
+.loader-wrap {
+  margin-top: 240px;
+}
+
+.loader-text {
+  color: #E01E25;
+  text-align: center;
+  margin-top: 12px;
+}
+
 .loader {
   display: block;
+  margin: auto;
   position: relative;
   height: 32px;
-  border: 2px solid #FFF;
+  border: 2px solid #E01E25;
   width: 120px;
   background: #FFF;
   box-sizing: border-box;

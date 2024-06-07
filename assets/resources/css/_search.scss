@@ -69,11 +69,21 @@
     margin-top: 24px;
 }
 
-.loader{
+.loader-wrap {
+    margin-top: 240px;
+}
+.loader-text {
+    color: $colorTextAccent;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.loader {
     display: block;
+    margin: auto;
     position: relative;
     height: 32px;
-    border: 2px solid $colorBackgroundLight;
+    border: 2px solid $colorBackgroundAccent;
     width: 120px;
     background: $colorBackgroundLight;
     box-sizing: border-box;
