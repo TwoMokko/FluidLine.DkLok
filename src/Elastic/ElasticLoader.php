@@ -77,7 +77,7 @@ class ElasticLoader
                     "PUT",
                     "/dklok_files"
                 );
-            $this->process->elasticReloadFiles();
+            // $this->process->elasticReloadFiles();
         }
     }
 
@@ -103,7 +103,7 @@ class ElasticLoader
     protected function getSearch(): string
     {
         $this->searchForProducts();
-        $this->searchForFiles();
+        // $this->searchForFiles();
         $this->jsonFormatter();
 
         return $this->return;
@@ -116,7 +116,11 @@ class ElasticLoader
                 'from' => $this->page ?? 0,
                 'size' => 8,
                 'sort' => [
-                    ['_id' => ["order" => "asc"],],
+                    '_index' => [
+                        'unmapped_type' => 'long'
+                    ],
+                    '_id' => ["order" => "asc"],
+
                 ],
                 'query' => [
                     "simple_query_string" => [
@@ -180,12 +184,12 @@ class ElasticLoader
         foreach ($this->products['hits']['hits'] as $product) {
             $this->result['products']['content'][] = $product["_source"];
         }
-        foreach ($this->files['hits']['hits'] as $file) {
-            $this->result['catalogs'][] = [
-                "name" => $file["_source"]["name"],
-                "link" => $file["_source"]["link"],
-            ];
-        }
+        // foreach ($this->files['hits']['hits'] as $file) {
+        //     $this->result['catalogs'][] = [
+        //         "name" => $file["_source"]["name"],
+        //         "link" => $file["_source"]["link"],
+        //     ];
+        // }
         $this->result['products']['limit'] = ceil(
             $this->products['hits']['total'] / 8
         );
