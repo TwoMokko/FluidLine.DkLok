@@ -65,7 +65,7 @@ class ElasticLoader
                 ->client
                 ->request(
                     "PUT",
-                    "/wika_products"
+                    "/dklok_products"
                 );
 
             $this->process->elasticReloadProducts();
@@ -75,7 +75,7 @@ class ElasticLoader
                 ->client
                 ->request(
                     "PUT",
-                    "/wika_files"
+                    "/dklok_files"
                 );
             $this->process->elasticReloadFiles();
         }

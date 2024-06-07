@@ -73,6 +73,7 @@ class ElasticProcess
                     break;
             }
             $this->products[$result['contentid']]['title'] = $result['pagetitle'];
+            $this->sendProductsToElastic();
         }
     }
 
@@ -86,7 +87,7 @@ class ElasticProcess
     private function sendProductsToElastic(): void
     {
         foreach ($this->products as $key => $val) {
-            $index = 'wika_products';
+            $index = 'dklok_products';
             $type = 'product';
             $this->client->request(
                 "PUT",
@@ -108,7 +109,7 @@ class ElasticProcess
                 continue;
             }
 
-            $index = 'wika_files';
+            $index = 'dklok_files';
             $type = 'file';
 
             $this->client->request(
