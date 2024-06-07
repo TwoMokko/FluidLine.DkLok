@@ -1121,6 +1121,9 @@ header {
   .prods-cards-item > div:first-child {
     margin-bottom: 8px;
     height: 118px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .prods-cards-item > div:last-child {
     font-size: 12px;
@@ -1172,6 +1175,9 @@ header {
   .prods-cards-item > div:first-child {
     margin-bottom: 8px;
     height: 118px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .prods-cards-item-price {
     margin: 1.1rem 0;
@@ -1219,6 +1225,9 @@ header {
   .prods-cards-item > div:first-child {
     margin-bottom: 24px;
     height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .prods-cards-item-price {
     margin: 1.1rem 0;

@@ -40,6 +40,9 @@
                 > div:first-child {
                     margin-bottom: GetParam($params, img_margin_bot, 24px);
                     height: GetParam($params, img_height, 200px);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
                 }
                 > div:last-child {
                     font-size: GetParam($params, card_font_size, null);
