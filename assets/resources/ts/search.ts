@@ -235,8 +235,8 @@ namespace Common {
                 itemProductContainer.href = product.alias;
             }
 
-            this.productsContainer.style.marginBottom = '120px';
-            this.productsContainer.style.paddingBottom = '68px';
+            // this.productsContainer.style.marginBottom = '120px';
+            // this.productsContainer.style.paddingBottom = '68px';
 
             // let productMoreShowWrap = createElement('div', 'products-more showAll', null, document.querySelector('.products-section'));
             // let productMoreShow = createElement('div', null, null, productMoreShowWrap);
