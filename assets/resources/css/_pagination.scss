@@ -17,6 +17,7 @@ div.switcher {
         }
         &.mini {
             width: max-content;
+            margin: 40px auto 0;
         }
         .switch {
             display: GetParam($params, display_btn, null);

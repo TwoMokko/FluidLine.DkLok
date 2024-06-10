@@ -65,6 +65,8 @@ declare namespace Common {
         private lastBtn;
         constructor(pageContainerClass: string);
         static doSearch(input: HTMLInputElement): void;
+        private setCurrentPage;
+        private updateLocationHref;
         static resetValue(input: HTMLInputElement): void;
         private testRequest;
         private initData;

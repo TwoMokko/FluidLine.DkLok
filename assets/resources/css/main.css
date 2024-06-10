@@ -1085,6 +1085,7 @@ header {
 @media (max-width: 860px) {
   .prods {
     padding: 0;
+    margin-bottom: 20px;
   }
   .prods-info {
     margin-bottom: 20px;
@@ -1105,7 +1106,6 @@ header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    margin-bottom: 1px;
     padding: 16px;
     background-color: #242424;
   }
@@ -1143,6 +1143,7 @@ header {
 @media (min-width: 861px) and (max-width: 1280px) {
   .prods {
     padding: 0 10%;
+    margin-bottom: 84px;
   }
   .prods-info {
     margin-bottom: 84px;
@@ -1159,7 +1160,6 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    margin-bottom: 84px;
     padding: 16px;
     background-color: #242424;
   }
@@ -1193,6 +1193,7 @@ header {
 @media (min-width: 1281px) {
   .prods {
     padding: 0 10%;
+    margin-bottom: 84px;
   }
   .prods-info {
     margin-bottom: 84px;
@@ -1209,7 +1210,6 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
-    margin-bottom: 84px;
     padding: 40px;
     background-color: #242424;
   }
@@ -1604,6 +1604,7 @@ header {
 @media (max-width: 760px) {
   .products-section {
     position: relative;
+    margin-bottom: 84px;
   }
   .products-section-head {
     margin-bottom: 2.5rem;
@@ -1653,6 +1654,7 @@ header {
 @media (min-width: 761px) and (max-width: 1280px) {
   .products-section {
     position: relative;
+    margin-bottom: 84px;
   }
   .products-section-head {
     margin-bottom: 2.5rem;
@@ -1702,6 +1704,7 @@ header {
 @media (min-width: 1281px) {
   .products-section {
     position: relative;
+    margin-bottom: 84px;
   }
   .products-section-head {
     margin-bottom: 2.5rem;
@@ -2039,6 +2042,7 @@ header {
   }
   div.switcher.mini {
     width: max-content;
+    margin: 40px auto 0;
   }
   div.switcher .switch {
     display: none;
@@ -2105,6 +2109,7 @@ header {
   }
   div.switcher.mini {
     width: max-content;
+    margin: 40px auto 0;
   }
   div.switcher .switch {
     flex: none;

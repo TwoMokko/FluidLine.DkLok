@@ -4,6 +4,7 @@
 .products-section {
     @mixin ProductsSection($params: null) {
         position: relative;
+        margin-bottom: GetParam($params, info_margin_bot, 84px);
         //margin-bottom: 80px;
         //padding: 2.5rem 3.3rem 273px;
         //background-color: $colorLightGray;
@@ -57,6 +58,6 @@
     }
 
     @include MixScreen(null, $sizeX) { @include ProductsSection((grid_col: 1, img_height: 14rem)); }
-    @include MixScreen($sizeX, $size4XL) { @include ProductsSection((grid_col: 2, img_height: 14rem)); }
+    @include MixScreen($sizeX, $size4XL) { @include ProductsSection((grid_col: 2, img_height: 14rem, info_margin_top: 20px,)); }
     @include MixScreen($size4XL) { @include ProductsSection(()); }
 }

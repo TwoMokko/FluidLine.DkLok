@@ -290,6 +290,7 @@ var Common;
             this.pageContainer = document.querySelector(pageContainerClass);
             this.createLoader(this.pageContainer);
             this.setSearchValue();
+            this.setCurrentPage();
             // this.testRequest();
             this.initData();
             // if (this.pageContainerClass === '.search-catalogs-container') new Common.SearchQuote();
@@ -297,6 +298,16 @@ var Common;
         static doSearch(input) {
             // window.location.href = `/result`;
             window.location.href = `/result?page=1&search=${input.value}`;
+        }
+        setCurrentPage() {
+            let url = document.location.href;
+            console.log(url);
+            let params = new URL(url).searchParams;
+            this.currentPage = Number(params.get("page"));
+            console.log(this.currentPage);
+        }
+        updateLocationHref() {
+            window.location.href = `/result?page=${this.currentPage}&search=${this.searchValue}`;
         }
         static resetValue(input) {
             input.value = '';
@@ -460,7 +471,7 @@ var Common;
         }
         createBtn() {
             if (!document.querySelector('.search-catalogs-container')
-                && !document.querySelector('.search-products-container'))
+                && !document.querySelector('.products-section'))
                 return;
             // let container = createElement('div', 'container', null, this.pageContainer);
             this.btnContainer = createElement('div', 'mini switcher', null, this.productsContainer);
@@ -478,23 +489,23 @@ var Common;
             this.lastBtn = createElement('div', 'switch', 'в конец', this.btnContainer);
             // this.addEventForBtnPagination();
             this.updateClassButtons();
-            this.btnContainer.style.margin = '90px auto 0';
+            // this.btnContainer.style.margin = '90px auto 0';
         }
         addEventForBtnPagination(previous, next) {
-            // this.firstBtn.addEventListener('click', () => this.updatePage(1));
-            if (!previous) {
-                this.nextBtn.addEventListener('click', () => this.nextPage());
-                this.lastBtn.addEventListener('click', () => this.updatePage(1));
-                return;
-            }
-            if (!next) {
-                this.firstBtn.addEventListener('click', () => this.updatePage(this.data.products.limit));
-                this.previousBtn.addEventListener('click', () => this.previousPage());
-                return;
-            }
+            this.firstBtn.addEventListener('click', () => this.updatePage(1));
+            // if (!previous) {
+            //     this.nextBtn.addEventListener('click', () => this.nextPage());
+            //     this.lastBtn.addEventListener('click', () => this.updatePage(1));
+            //     return;
+            // }
+            // if (!next) {
+            //     this.firstBtn.addEventListener('click', () => this.updatePage(this.data.products.limit));
+            //     this.previousBtn.addEventListener('click', () => this.previousPage());
+            //     return;
+            // }
             this.previousBtn.addEventListener('click', () => this.previousPage());
             this.nextBtn.addEventListener('click', () => this.nextPage());
-            // this.lastBtn.addEventListener('click', () => this.updatePage(this.data.products.limit));
+            this.lastBtn.addEventListener('click', () => this.updatePage(this.data.products.limit));
         }
         updateClassButtons() {
             // Array.from(document.querySelectorAll('.number-page')).forEach(elem => {
@@ -520,16 +531,19 @@ var Common;
             if (this.currentPage <= 1)
                 return;
             this.currentPage--;
+            this.updateLocationHref();
             this.initData();
         };
         nextPage = () => {
             if (this.currentPage >= this.data.products.limit)
                 return;
             this.currentPage++;
+            this.updateLocationHref();
             this.initData();
         };
         updatePage(number) {
             this.currentPage = number;
+            this.updateLocationHref();
             this.initData();
         }
     }
